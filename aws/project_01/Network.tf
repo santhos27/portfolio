@@ -68,7 +68,7 @@ resource "aws_security_group" "server_sg_01" {
   tags = {
     Name = "server_sg_01"
   }
-
+# Allow inbound traffic (ingress)
   ingress {
     description = "Http protocol"
     from_port = 80
@@ -93,4 +93,12 @@ resource "aws_security_group" "server_sg_01" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+# Allow all outbound traffic (egress)
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"  # "-1" represents all protocols
+    cidr_blocks = ["0.0.0.0/0"]  # Allow traffic to all destinations (0.0.0.0/0)
+  }
 

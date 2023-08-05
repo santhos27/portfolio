@@ -178,4 +178,4 @@ resource "aws_security_group" "web_server_sg" {
     protocol    = "-1"  # "-1" represents all protocols
     cidr_blocks = ["0.0.0.0/0"]  # Allow traffic to all destinations (0.0.0.0/0)
   }
-}
+
