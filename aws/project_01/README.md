@@ -1,9 +1,9 @@
 AWS: PROJECT-1
 
-here i have planed to create an infra of 3 different instances with teraform code
+here i have planed to create an infra of 3 different instances with terraform code
 
     1-> ec2.tf
-        under this teraform file i have coded to launch 3 different instance with 3 different ami
+        under this terraform file i have coded to launch 3 different instance with 3 different ami
                 ami
             ami 1 ubuntu
             ami 2 redhat
@@ -26,17 +26,17 @@ here i have planed to create an infra of 3 different instances with teraform cod
                     configured firewall to inbound the traffic for ssh rds http ports and outbund of all ports
 
     3-> Provider.tf
-        under this teraform file i have called the aws provider api and configured with my aws credential with access key and secret key and also configured the reagon
+        under this terraform file i have called the aws provider api and configured with my aws credential with access key and secret key and also configured the reagon
 
 OUTPUT:
 ------
 we have to follow these commands
-    -> teraform init
+    -> terraform init
         it will check the provider.tf file to call the api and download the mentioned api inside it and starts a communication between the local machine and the provider
-            |   local_machine <-> teraform with provider api <-> provider   |
-    -> teraform plan
+            |   local_machine <-> terraform with provider api <-> provider   |
+    -> terraform plan
         it will check the code in all tf files for error if not then it gives the output of what will happened by executing this code.
-    -> teraform apply
+    -> terraform apply
         it will create all necessory thing first like vpc subnets route table igw route table association and security group and then it launch those 3 instance with those pre-configurations
-    -> teraform destroy
-        this command will reverse all the changes happend on teraform appy
+    -> terraform destroy
+        this command will reverse all the changes happend on terraform appy
