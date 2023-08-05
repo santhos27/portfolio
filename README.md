@@ -2,18 +2,15 @@
 Here is my portfolio
 
 AWS:
+  project -1
+  
+      A minimal project to deploy a infra with 3 different instance in a vpc and on singel subnet
+    allowed the ports for inbound of ssh rdp and http and allowed the ports for outbound of all ports
+  
+  project -2
 
-  in this project, there are 3 terraform files to create a infrastructure
-    1: Provider.tf
-    2: ec2.tf
-    3: Network.tf
+      A project to deploy a 3 tire architure infra over aws on a single vpc with two public subnets and two private subnets and launched a instance on each subnets and attached the public subnet with igw and attached the private subnets wit nat and assigned two eip for the instance inside the private subnets and created two route tablbes for public and private subnets also and  associated them.
 
-Provider.tf:
-    In this file i have coded the aws api and cerd to access AWS from Terraform
-
-ec2.tf:
-    In this terraform file i have coded the number of and types of instance i want to deploy
-
-Network.tf:
-    In this terraform file i have coded the network related configuration over aws
-      that is (vpc, subnets, igw, route table, security group )
+      Instance in public instance are used as web servers
+      Instance in private instance are used as database and logical servers
+        so that no one can have access the private instance publicaly only with the help of public instance through the nat gateway we can access those private subnets

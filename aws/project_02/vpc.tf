@@ -21,7 +21,7 @@ resource "aws_subnet" "public_subnet_1a" {
   availability_zone = "ap-south-1a"
   map_public_ip_on_launch = true
   tags = {
-    Name = "public_subnet"
+    Name = "public_subnet_1a"
   }
 }
 
@@ -35,7 +35,7 @@ resource "aws_subnet" "public_subnet_1b" {
   availability_zone = "ap-south-1b"
   map_public_ip_on_launch = true
   tags = {
-    Name = "public_subnet"
+    Name = "public_subnet_1b"
   }
 }
 
@@ -69,7 +69,7 @@ resource "aws_route_table" "public_route_table" {
 
 
 resource "aws_route_table_association" "public_route_table_association" {
-  subnet_id = aws_subnet.public_subnet1.id
+subnet_id = [ aws_subnet.public_subnet_1a.id , aws_subnet.public_subnet_1b.id ]
   route_table_id = aws_route_table.public_route_table.id
 }
 
@@ -86,7 +86,7 @@ resource "aws_subnet" "private_subnet_1a" {
   availability_zone = "ap-south-1a"
 
   tags = {
-    Name = "private_subnet1"
+    Name = "private_subnet_1a"
   }
 }
 
@@ -99,7 +99,7 @@ resource "aws_subnet" "private_subnet_1b" {
   availability_zone = "ap-south-1b"
 
   tags = {
-    Name = "private_subnet2"
+    Name = "private_subnet_1b"
   }
 }
 #------------------------------------------------
