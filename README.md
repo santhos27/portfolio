@@ -4,7 +4,7 @@ Here is my portfolio
 AWS:
   project -1
   
-      A minimal project to deploy a infra with 3 different instance in a vpc and on singel subnet
+      A minimal project to deploy a infra with 3 different instance in a vpc and on single subnet
     allowed the ports for inbound of ssh rdp and http and allowed the ports for outbound of all ports
   
   project -2
@@ -13,4 +13,4 @@ AWS:
 
       Instance in public instance are used as web servers
       Instance in private instance are used as database and logical servers
-        so that no one can have access the private instance publicaly only with the help of public instance through the nat gateway we can access those private subnets
+        so that no one can have access the private instance directly. only with the help of public instance through the nat gateway we can access those private subnets
