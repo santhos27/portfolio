@@ -7,7 +7,7 @@ server.starttls()#staring the mailserve with tls auth
 #sample employee details
 name = "Santhos"
 desig = "Software Engineer"
-email = "santhoskumarvfx@gmail.com"
+email = "santhoskumar@gmail.com"
 try:
         # Server login
         server.login('santhoskumarhr@gmail.com', 'pdjr dbkr uhlz lfmc')#logging in to the account with app password generated in 'manage your google account'
