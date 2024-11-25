@@ -17,4 +17,4 @@ emp.execute("SELECT ID, NAME, DESIG, EMAIL FROM EMPLOYEE WHERE ID IN (1, 4, 5)")
 
 # Iterate over each employee record
 for row in emp:
-    print(row)
+    emp_id, name, desig, email = row  # Unpack row fields
