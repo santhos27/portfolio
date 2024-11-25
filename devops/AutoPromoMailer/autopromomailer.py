@@ -5,9 +5,7 @@ server = smtplib.SMTP('smtp.gmail.com',587)#587 is the port for gmail different 
 server.starttls()#staring the mailserve with tls auth
 
 #sample employee details
-name = "Santhos"
-desig = "Software Engineer"
-email = "santhoskumar@gmail.com"
+
 try:
         # Server login
         server.login('santhoskumarhr@gmail.com', 'pdjr dbkr uhlz lfmc')#logging in to the account with app password generated in 'manage your google account'
