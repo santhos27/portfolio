@@ -1,12 +1,30 @@
+import mysql.connector#library for MYSQL Database
 import smtplib #library for mail feature
 
-# SMTP configuration
-server = smtplib.SMTP('smtp.gmail.com',587)#587 is the port for gmail different domains has different port
-server.starttls()#staring the mailserve with tls auth
+# Connect to MySQL server
+mydb = mysql.connector.connect(
+    host="localhost",
+    port="3306",
+    user="admin",
+    password="admin",
+    database="emp"
+)
 
-#sample employee details
+# Cursor object
+emp = mydb.cursor()
 
-try:
+# Execute the query
+emp.execute("SELECT ID, NAME, DESIG, EMAIL FROM EMPLOYEE WHERE ID IN (1, 4, 5)")
+
+# Iterate over each employee record
+for row in emp:
+    emp_id, name, desig, email = row  # Unpack row fields
+
+    # SMTP configuration
+    server = smtplib.SMTP('smtp.gmail.com',587)#587 is the port for gmail different domains has different port
+    server.starttls()#staring the mailserve with tls auth
+
+    try:
         # Server login
         server.login('santhoskumarhr@gmail.com', 'pdjr dbkr uhlz lfmc')#logging in to the account with app password generated in 'manage your google account'
         
@@ -27,9 +45,12 @@ Human Resources
         server.sendmail('santhoskumarhr@gmail.com', email, message)
         print(f"Email sent successfully to {name} ({email}).")
 
-except Exception as e:
+    except Exception as e:
         print(f"Failed to send email to {name} ({email}). Error: {e}")
     
-finally:
+    finally:
         # Close the server connection after each email
         server.quit()
+
+# Close the database connection
+mydb.close()
