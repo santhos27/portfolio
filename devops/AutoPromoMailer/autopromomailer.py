@@ -4,16 +4,34 @@ import smtplib #library for mail feature
 server = smtplib.SMTP('smtp.gmail.com',587)#587 is the port for gmail different domains has different port
 server.starttls()#staring the mailserve with tls auth
 
-# Server login
-server.login('santhoskumarhr@gmail.com', 'pdjr dbkr uhlz lfmc')#logging in to the account with app password generated in 'manage your google account'
+#sample employee details
+name = "Santhos"
+desig = "Software Engineer"
+email = "santhoskumarvfx@gmail.com"
+try:
+        # Server login
+        server.login('santhoskumarhr@gmail.com', 'pdjr dbkr uhlz lfmc')#logging in to the account with app password generated in 'manage your google account'
+        
+        # Preparing email content
+        subject = "Promotion Notification"
+        body = f"""
+Hi {name},
 
-# Sending email
-subject = "Test Mail"
-body = "This is a test mail from Python."
-message = f"Subject: {subject}\n\n{body}"
-server.sendmail('santhoskumarhr@gmail.com','santhoskumarvfx@gmail.com', message)
+Congratulations! You have been promoted from {desig} to SENIOR {desig} with a performance bonus of 25% of your CTC.
 
-print("Email sent successfully.")
+Best Regards,  
+Human Resources
+        """
 
-# Close the connection
-server.quit()
+        message = f"Subject: {subject}\n\n{body}"
+
+        # Send email
+        server.sendmail('santhoskumarhr@gmail.com', email, message)
+        print(f"Email sent successfully to {name} ({email}).")
+
+except Exception as e:
+        print(f"Failed to send email to {name} ({email}). Error: {e}")
+    
+finally:
+        # Close the server connection after each email
+        server.quit()
