@@ -1,7 +1,7 @@
 #---------VPC - 2public & 2 Private subnets on mumbai regon-------
 
 resource "aws_vpc" "demovpc" {
-  cidr_block    =   "192.168.10.0/24"
+  cidr_block    =   "192.168.0.0/24"
   instance_tenancy  =   "default"
 
     tags ={
@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet_1a" {
 
 resource "aws_subnet" "public_subnet_1b" {
   vpc_id     = aws_vpc.demovpc.id
-  cidr_block = "192.168.10.64/26"
+  cidr_block = "192.168.11.0/26"
   availability_zone = "ap-south-1b"
   map_public_ip_on_launch = true
   tags = {
@@ -82,7 +82,7 @@ subnet_id = [ aws_subnet.public_subnet_1a.id , aws_subnet.public_subnet_1b.id ]
 
 resource "aws_subnet" "private_subnet_1a" {
   vpc_id     = aws_vpc.demovpc.id
-  cidr_block = "192.168.10.129/26"
+  cidr_block = "192.168.12.0/26"
   availability_zone = "ap-south-1a"
 
   tags = {
