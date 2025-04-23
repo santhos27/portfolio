@@ -37,24 +37,24 @@ Configurations
 
 🧭 Directory Structure:
 -----------------------
- PORTFOLIO/
- └── docker/
-    	└── monitoring_v1/
-        	├── docker-compose.yml
-	        └── volume/
-        	    ├── grafana/
-	            │   ├── dashboards/
-	            │   ├── datasource.yml
-	            │   └── logs/
-	            ├── portainer/
-	            │   └── certs/
-	            │       ├── portainer.crt
-	            │       └── portainer.key
-	            ├── prometheus/
-	            │   ├── backups/
-	            │   └── prometheus.yml
-	            └── snmp_exporter/
-	                └── snmp.yml
+<pre> ``` PORTFOLIO/
+	    └── docker/
+	    	└── monitoring_v1/
+        		├── docker-compose.yml
+	        	└── volume/
+        	   	├── grafana/
+	            	│   ├── dashboards/
+	           	│   ├── datasource.yml
+	            	│   └── logs/
+	            	├── portainer/
+	            	│   └── certs/
+	            	│       ├── portainer.crt
+	            	│       └── portainer.key
+	            	├── prometheus/
+	            	│   ├── backups/
+	            	│   └── prometheus.yml
+	            	└── snmp_exporter/
+	                	└── snmp.yml ``` </pre>
 
 🚀 Getting Started
 ------------------
@@ -64,14 +64,14 @@ Configurations
 2-> Launch the stack:
 	docker-compose up -d
 3-> Access the services:
-	---------------------------------------------------------------------------------------------------------
+	|-------------------------------------------------------------------------------------------------------|
 	|Service	|				URL				|Default Credentials	|
-	---------------------------------------------------------------------------------------------------------
+	|-------------------------------------------------------------------------------------------------------|
 	|Prometheus 	|	http://localhost:9200 (ip_of_local_machine:9200)	|  Set on first login	|
 	|Grafana 	|	http://localhost:3100 (ip_of_local_machine:3100) 	|(login: admin / admin)	|
 	|Portainer 	|	https://localhost:9443 (ip_of_local_machine:9443)	|  Set on first login	|
 	|SNMP Exporter 	|	http://localhost:9116/metrics				|	 N/A		|
-	---------------------------------------------------------------------------------------------------------
+	|-------------------------------------------------------------------------------------------------------|
 
 📊 Grafana Configuration:
 -------------------------
