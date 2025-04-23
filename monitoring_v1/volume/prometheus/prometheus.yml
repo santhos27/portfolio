@@ -1,0 +1,73 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  #  - job_name: 'telegraf'
+  #    static_configs:
+  #      - targets: ['192.168.0.175:9273']
+
+#Node exporter area
+#Linux Server
+  - job_name: 'Node_Exporter_Linux_servers'
+    static_configs:
+      - targets: ['192.168.0.55:9100', '192.168.0.163:9100','192.168.0.136:9100', '192.168.0.137:9100', '192.168.0.138:9100', '192.168.0.139:9100', '192.168.0.131:9100', '192.168.0.132:9100','192.168.0.133:9100']
+#Linux Machins
+  - job_name: 'Node_Exporter_ITSupport_ubuntu'
+    static_configs:
+      - targets: ['node_exporter:9100' , '192.168.3.22:9100' , '192.168.2.94:9100' , '192.168.1.192:9100']
+
+#Windows Servers
+  - job_name: 'Node_Exporter_ITSupport_windows'
+    static_configs:
+      - targets: ['192.168.3.173:9182']
+
+# SNMP Exporter - Cisco Switches with different communities
+  - job_name: 'Cisco_Switches'
+    metrics_path: /snmp
+    params:
+      module: [cisco_switch]  # This refers to a module in snmp.yml
+    static_configs:
+      - targets:
+          - '192.168.0.85'  # Switch 1 - secure community
+          - '192.168.0.95'  # Switch 2 - public community
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+
+      # Assign auth per switch
+      - source_labels: [__address__]
+        regex: 192\.168\.0\.85
+        target_label: __param_auth
+        replacement: cisco_85
+
+      - source_labels: [__address__]
+        regex: 192\.168\.0\.95
+        target_label: __param_auth
+        replacement: cisco_95
+
+      - target_label: __address__
+        replacement: 192.168.0.170:9116  # SNMP Exporter IP and port
+
+  - job_name: 'Wathchguard'
+    metrics_path: /snmp
+    params:
+      module: [watchguard]  # This matches the module name in snmp.yml
+    static_configs:
+      - targets:
+          - '192.168.0.225'  # IP of WatchGuard M670
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+    # Add relabel configuration for WatchGuard community string
+      - source_labels: [__address__]
+        regex: 192\.168\.0\.225
+        target_label: __param_auth
+        replacement: watchguard  # Matches the community in snmp.yml for WatchGuard
+      - target_label: __address__
+        replacement: 192.168.0.172:9116  # Your snmp_exporter host
+

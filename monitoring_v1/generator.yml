@@ -1,0 +1,13 @@
+---
+modules:
+  cisco:
+    walk:
+      - sysUpTime
+      - sysName
+      - ifDescr
+      - ifAdminStatus
+      - ifOperStatus
+      - ifHCInOctets
+      - ifHCOutOctets
+    version: 2
+    community: "Cha3EMU&h+za"

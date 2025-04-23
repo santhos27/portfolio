@@ -1,0 +1,4065 @@
+# WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.
+auths:
+  cisco_85:
+    community: 'Cha3EMU&h+za'
+  cisco_95:
+    community: 'Sw7yenUje-$E'
+  watchguard:
+    community: 'mobius'
+modules:
+  cisco_switch:
+    walk:
+    - 1.3.6.1.2.1.2.2
+    - 1.3.6.1.2.1.31.1.1
+    - 1.3.6.1.4.1.9.6.1.101.29
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: sysDescr
+      oid: 1.3.6.1.2.1.1.1
+      type: DisplayString
+      help: A textual description of the entity - 1.3.6.1.2.1.1.1
+    - name: sysObjectID
+      oid: 1.3.6.1.2.1.1.2
+      type: OctetString
+      help: The vendor's authoritative identification of the network management subsystem
+        contained in the entity - 1.3.6.1.2.1.1.2
+    - name: sysUpTime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: The time (in hundredths of a second) since the network management portion
+        of the system was last re-initialized. - 1.3.6.1.2.1.1.3
+    - name: sysContact
+      oid: 1.3.6.1.2.1.1.4
+      type: DisplayString
+      help: The textual identification of the contact person for this managed node,
+        together with information on how to contact this person - 1.3.6.1.2.1.1.4
+    - name: sysName
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: An administratively-assigned name for this managed node - 1.3.6.1.2.1.1.5
+    - name: sysLocation
+      oid: 1.3.6.1.2.1.1.6
+      type: DisplayString
+      help: The physical location of this node (e.g., `telephone closet, 3rd floor')
+        - 1.3.6.1.2.1.1.6
+    - name: ifIndex
+      oid: 1.3.6.1.2.1.2.2.1.1
+      type: gauge
+      help: A unique value, greater than zero, for each interface - 1.3.6.1.2.1.2.2.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifDescr
+      oid: 1.3.6.1.2.1.2.2.1.2
+      type: DisplayString
+      help: A textual string containing information about the interface - 1.3.6.1.2.1.2.2.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifType
+      oid: 1.3.6.1.2.1.2.2.1.3
+      type: gauge
+      help: The type of interface - 1.3.6.1.2.1.2.2.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: other
+        2: regular1822
+        3: hdh1822
+        4: ddnX25
+        5: rfc877x25
+        6: ethernetCsmacd
+        7: iso88023Csmacd
+        8: iso88024TokenBus
+        9: iso88025TokenRing
+        10: iso88026Man
+        11: starLan
+        12: proteon10Mbit
+        13: proteon80Mbit
+        14: hyperchannel
+        15: fddi
+        16: lapb
+        17: sdlc
+        18: ds1
+        19: e1
+        20: basicISDN
+        21: primaryISDN
+        22: propPointToPointSerial
+        23: ppp
+        24: softwareLoopback
+        25: eon
+        26: ethernet3Mbit
+        27: nsip
+        28: slip
+        29: ultra
+        30: ds3
+        31: sip
+        32: frameRelay
+        33: rs232
+        34: para
+        35: arcnet
+        36: arcnetPlus
+        37: atm
+        38: miox25
+        39: sonet
+        40: x25ple
+        41: iso88022llc
+        42: localTalk
+        43: smdsDxi
+        44: frameRelayService
+        45: v35
+        46: hssi
+        47: hippi
+        48: modem
+        49: aal5
+        50: sonetPath
+        51: sonetVT
+        52: smdsIcip
+        53: propVirtual
+        54: propMultiplexor
+        55: ieee80212
+        56: fibreChannel
+        57: hippiInterface
+        58: frameRelayInterconnect
+        59: aflane8023
+        60: aflane8025
+        61: cctEmul
+        62: fastEther
+        63: isdn
+        64: v11
+        65: v36
+        66: g703at64k
+        67: g703at2mb
+        68: qllc
+        69: fastEtherFX
+        70: channel
+        71: ieee80211
+        72: ibm370parChan
+        73: escon
+        74: dlsw
+        75: isdns
+        76: isdnu
+        77: lapd
+        78: ipSwitch
+        79: rsrb
+        80: atmLogical
+        81: ds0
+        82: ds0Bundle
+        83: bsc
+        84: async
+        85: cnr
+        86: iso88025Dtr
+        87: eplrs
+        88: arap
+        89: propCnls
+        90: hostPad
+        91: termPad
+        92: frameRelayMPI
+        93: x213
+        94: adsl
+        95: radsl
+        96: sdsl
+        97: vdsl
+        98: iso88025CRFPInt
+        99: myrinet
+        100: voiceEM
+        101: voiceFXO
+        102: voiceFXS
+        103: voiceEncap
+        104: voiceOverIp
+        105: atmDxi
+        106: atmFuni
+        107: atmIma
+        108: pppMultilinkBundle
+        109: ipOverCdlc
+        110: ipOverClaw
+        111: stackToStack
+        112: virtualIpAddress
+        113: mpc
+        114: ipOverAtm
+        115: iso88025Fiber
+        116: tdlc
+        117: gigabitEthernet
+        118: hdlc
+        119: lapf
+        120: v37
+        121: x25mlp
+        122: x25huntGroup
+        123: transpHdlc
+        124: interleave
+        125: fast
+        126: ip
+        127: docsCableMaclayer
+        128: docsCableDownstream
+        129: docsCableUpstream
+        130: a12MppSwitch
+        131: tunnel
+        132: coffee
+        133: ces
+        134: atmSubInterface
+        135: l2vlan
+        136: l3ipvlan
+        137: l3ipxvlan
+        138: digitalPowerline
+        139: mediaMailOverIp
+        140: dtm
+        141: dcn
+        142: ipForward
+        143: msdsl
+        144: ieee1394
+        145: if-gsn
+        146: dvbRccMacLayer
+        147: dvbRccDownstream
+        148: dvbRccUpstream
+        149: atmVirtual
+        150: mplsTunnel
+        151: srp
+        152: voiceOverAtm
+        153: voiceOverFrameRelay
+        154: idsl
+        155: compositeLink
+        156: ss7SigLink
+        157: propWirelessP2P
+        158: frForward
+        159: rfc1483
+        160: usb
+        161: ieee8023adLag
+        162: bgppolicyaccounting
+        163: frf16MfrBundle
+        164: h323Gatekeeper
+        165: h323Proxy
+        166: mpls
+        167: mfSigLink
+        168: hdsl2
+        169: shdsl
+        170: ds1FDL
+        171: pos
+        172: dvbAsiIn
+        173: dvbAsiOut
+        174: plc
+        175: nfas
+        176: tr008
+        177: gr303RDT
+        178: gr303IDT
+        179: isup
+        180: propDocsWirelessMaclayer
+        181: propDocsWirelessDownstream
+        182: propDocsWirelessUpstream
+        183: hiperlan2
+        184: propBWAp2Mp
+        185: sonetOverheadChannel
+        186: digitalWrapperOverheadChannel
+        187: aal2
+        188: radioMAC
+        189: atmRadio
+        190: imt
+        191: mvl
+        192: reachDSL
+        193: frDlciEndPt
+        194: atmVciEndPt
+        195: opticalChannel
+        196: opticalTransport
+        197: propAtm
+        198: voiceOverCable
+        199: infiniband
+        200: teLink
+        201: q2931
+        202: virtualTg
+        203: sipTg
+        204: sipSig
+        205: docsCableUpstreamChannel
+        206: econet
+        207: pon155
+        208: pon622
+        209: bridge
+        210: linegroup
+        211: voiceEMFGD
+        212: voiceFGDEANA
+        213: voiceDID
+        214: mpegTransport
+        215: sixToFour
+        216: gtp
+        217: pdnEtherLoop1
+        218: pdnEtherLoop2
+        219: opticalChannelGroup
+        220: homepna
+        221: gfp
+        222: ciscoISLvlan
+        223: actelisMetaLOOP
+        224: fcipLink
+        225: rpr
+        226: qam
+        227: lmp
+        228: cblVectaStar
+        229: docsCableMCmtsDownstream
+        230: adsl2
+        231: macSecControlledIF
+        232: macSecUncontrolledIF
+        233: aviciOpticalEther
+        234: atmbond
+        235: voiceFGDOS
+        236: mocaVersion1
+        237: ieee80216WMAN
+        238: adsl2plus
+        239: dvbRcsMacLayer
+        240: dvbTdm
+        241: dvbRcsTdma
+        242: x86Laps
+        243: wwanPP
+        244: wwanPP2
+        245: voiceEBS
+        246: ifPwType
+        247: ilan
+        248: pip
+        249: aluELP
+        250: gpon
+        251: vdsl2
+        252: capwapDot11Profile
+        253: capwapDot11Bss
+        254: capwapWtpVirtualRadio
+        255: bits
+        256: docsCableUpstreamRfPort
+        257: cableDownstreamRfPort
+        258: vmwareVirtualNic
+        259: ieee802154
+        260: otnOdu
+        261: otnOtu
+        262: ifVfiType
+        263: g9981
+        264: g9982
+        265: g9983
+        266: aluEpon
+        267: aluEponOnu
+        268: aluEponPhysicalUni
+        269: aluEponLogicalLink
+        270: aluGponOnu
+        271: aluGponPhysicalUni
+    - name: ifMtu
+      oid: 1.3.6.1.2.1.2.2.1.4
+      type: gauge
+      help: The size of the largest packet which can be sent/received on the interface,
+        specified in octets - 1.3.6.1.2.1.2.2.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifSpeed
+      oid: 1.3.6.1.2.1.2.2.1.5
+      type: gauge
+      help: An estimate of the interface's current bandwidth in bits per second -
+        1.3.6.1.2.1.2.2.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifPhysAddress
+      oid: 1.3.6.1.2.1.2.2.1.6
+      type: PhysAddress48
+      help: The interface's address at its protocol sub-layer - 1.3.6.1.2.1.2.2.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifAdminStatus
+      oid: 1.3.6.1.2.1.2.2.1.7
+      type: gauge
+      help: The desired state of the interface - 1.3.6.1.2.1.2.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+    - name: ifOperStatus
+      oid: 1.3.6.1.2.1.2.2.1.8
+      type: gauge
+      help: The current operational state of the interface - 1.3.6.1.2.1.2.2.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+    - name: ifLastChange
+      oid: 1.3.6.1.2.1.2.2.1.9
+      type: gauge
+      help: The value of sysUpTime at the time the interface entered its current operational
+        state - 1.3.6.1.2.1.2.2.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInOctets
+      oid: 1.3.6.1.2.1.2.2.1.10
+      type: counter
+      help: The total number of octets received on the interface, including framing
+        characters - 1.3.6.1.2.1.2.2.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.11
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were not addressed to a multicast or broadcast address at this sub-layer
+        - 1.3.6.1.2.1.2.2.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInNUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.12
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a multicast or broadcast address at this sub-layer
+        - 1.3.6.1.2.1.2.2.1.12
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInDiscards
+      oid: 1.3.6.1.2.1.2.2.1.13
+      type: counter
+      help: The number of inbound packets which were chosen to be discarded even though
+        no errors had been detected to prevent their being deliverable to a higher-layer
+        protocol - 1.3.6.1.2.1.2.2.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInErrors
+      oid: 1.3.6.1.2.1.2.2.1.14
+      type: counter
+      help: For packet-oriented interfaces, the number of inbound packets that contained
+        errors preventing them from being deliverable to a higher-layer protocol -
+        1.3.6.1.2.1.2.2.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInUnknownProtos
+      oid: 1.3.6.1.2.1.2.2.1.15
+      type: counter
+      help: For packet-oriented interfaces, the number of packets received via the
+        interface which were discarded because of an unknown or unsupported protocol
+        - 1.3.6.1.2.1.2.2.1.15
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutOctets
+      oid: 1.3.6.1.2.1.2.2.1.16
+      type: counter
+      help: The total number of octets transmitted out of the interface, including
+        framing characters - 1.3.6.1.2.1.2.2.1.16
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.17
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were not addressed to a multicast or broadcast address at this sub-layer,
+        including those that were discarded or not sent - 1.3.6.1.2.1.2.2.1.17
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutNUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.18
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a multicast or broadcast address at this sub-layer,
+        including those that were discarded or not sent - 1.3.6.1.2.1.2.2.1.18
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutDiscards
+      oid: 1.3.6.1.2.1.2.2.1.19
+      type: counter
+      help: The number of outbound packets which were chosen to be discarded even
+        though no errors had been detected to prevent their being transmitted - 1.3.6.1.2.1.2.2.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutErrors
+      oid: 1.3.6.1.2.1.2.2.1.20
+      type: counter
+      help: For packet-oriented interfaces, the number of outbound packets that could
+        not be transmitted because of errors - 1.3.6.1.2.1.2.2.1.20
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutQLen
+      oid: 1.3.6.1.2.1.2.2.1.21
+      type: gauge
+      help: The length of the output packet queue (in packets). - 1.3.6.1.2.1.2.2.1.21
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifSpecific
+      oid: 1.3.6.1.2.1.2.2.1.22
+      type: OctetString
+      help: A reference to MIB definitions specific to the particular media being
+        used to realize the interface - 1.3.6.1.2.1.2.2.1.22
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifName
+      oid: 1.3.6.1.2.1.31.1.1.1.1
+      type: DisplayString
+      help: The textual name of the interface - 1.3.6.1.2.1.31.1.1.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.2
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a multicast address at this sub-layer - 1.3.6.1.2.1.31.1.1.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.3
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a broadcast address at this sub-layer - 1.3.6.1.2.1.31.1.1.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.4
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a multicast address at this sub-layer, including
+        those that were discarded or not sent - 1.3.6.1.2.1.31.1.1.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.5
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a broadcast address at this sub-layer, including
+        those that were discarded or not sent - 1.3.6.1.2.1.31.1.1.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCInOctets
+      oid: 1.3.6.1.2.1.31.1.1.1.6
+      type: counter
+      help: The total number of octets received on the interface, including framing
+        characters - 1.3.6.1.2.1.31.1.1.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCInUcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.7
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were not addressed to a multicast or broadcast address at this sub-layer
+        - 1.3.6.1.2.1.31.1.1.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCInMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.8
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a multicast address at this sub-layer - 1.3.6.1.2.1.31.1.1.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCInBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.9
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a broadcast address at this sub-layer - 1.3.6.1.2.1.31.1.1.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCOutOctets
+      oid: 1.3.6.1.2.1.31.1.1.1.10
+      type: counter
+      help: The total number of octets transmitted out of the interface, including
+        framing characters - 1.3.6.1.2.1.31.1.1.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCOutUcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.11
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were not addressed to a multicast or broadcast address at this sub-layer,
+        including those that were discarded or not sent - 1.3.6.1.2.1.31.1.1.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCOutMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.12
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a multicast address at this sub-layer, including
+        those that were discarded or not sent - 1.3.6.1.2.1.31.1.1.1.12
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifHCOutBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.13
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a broadcast address at this sub-layer, including
+        those that were discarded or not sent - 1.3.6.1.2.1.31.1.1.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifLinkUpDownTrapEnable
+      oid: 1.3.6.1.2.1.31.1.1.1.14
+      type: gauge
+      help: Indicates whether linkUp/linkDown traps should be generated for this interface
+        - 1.3.6.1.2.1.31.1.1.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: enabled
+        2: disabled
+    - name: ifHighSpeed
+      oid: 1.3.6.1.2.1.31.1.1.1.15
+      type: gauge
+      help: An estimate of the interface's current bandwidth in units of 1,000,000
+        bits per second - 1.3.6.1.2.1.31.1.1.1.15
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifPromiscuousMode
+      oid: 1.3.6.1.2.1.31.1.1.1.16
+      type: gauge
+      help: This object has a value of false(2) if this interface only accepts packets/frames
+        that are addressed to this station - 1.3.6.1.2.1.31.1.1.1.16
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: "true"
+        2: "false"
+    - name: ifConnectorPresent
+      oid: 1.3.6.1.2.1.31.1.1.1.17
+      type: gauge
+      help: This object has the value 'true(1)' if the interface sublayer has a physical
+        connector and the value 'false(2)' otherwise. - 1.3.6.1.2.1.31.1.1.1.17
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: "true"
+        2: "false"
+    - name: ifAlias
+      oid: 1.3.6.1.2.1.31.1.1.1.18
+      type: DisplayString
+      help: This object is an 'alias' name for the interface as specified by a network
+        manager, and provides a non- volatile 'handle' for the interface - 1.3.6.1.2.1.31.1.1.1.18
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifCounterDiscontinuityTime
+      oid: 1.3.6.1.2.1.31.1.1.1.19
+      type: gauge
+      help: The value of sysUpTime on the most recent occasion at which any one or
+        more of this interface's counters suffered a discontinuity - 1.3.6.1.2.1.31.1.1.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+
+
+# WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.
+
+  watchguard:
+    walk:
+    - 1.3.6.1.2.1.1
+    - 1.3.6.1.2.1.2
+    - 1.3.6.1.4.1.3097
+    metrics:
+    - name: sysDescr
+      oid: 1.3.6.1.2.1.1.1
+      type: DisplayString
+      help: A textual description of the entity - 1.3.6.1.2.1.1.1
+    - name: sysObjectID
+      oid: 1.3.6.1.2.1.1.2
+      type: OctetString
+      help: The vendor's authoritative identification of the network management subsystem
+        contained in the entity - 1.3.6.1.2.1.1.2
+    - name: sysUpTime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: The time (in hundredths of a second) since the network management portion
+        of the system was last re-initialized. - 1.3.6.1.2.1.1.3
+    - name: sysContact
+      oid: 1.3.6.1.2.1.1.4
+      type: DisplayString
+      help: The textual identification of the contact person for this managed node,
+        together with information on how to contact this person - 1.3.6.1.2.1.1.4
+    - name: sysName
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: An administratively-assigned name for this managed node - 1.3.6.1.2.1.1.5
+    - name: sysLocation
+      oid: 1.3.6.1.2.1.1.6
+      type: DisplayString
+      help: The physical location of this node (e.g., `telephone closet, 3rd floor')
+        - 1.3.6.1.2.1.1.6
+    - name: sysServices
+      oid: 1.3.6.1.2.1.1.7
+      type: gauge
+      help: A value which indicates the set of services that this entity may potentially
+        offers - 1.3.6.1.2.1.1.7
+    - name: sysORLastChange
+      oid: 1.3.6.1.2.1.1.8
+      type: gauge
+      help: The value of sysUpTime at the time of the most recent change in state
+        or value of any instance of sysORID. - 1.3.6.1.2.1.1.8
+    - name: sysORIndex
+      oid: 1.3.6.1.2.1.1.9.1.1
+      type: gauge
+      help: The auxiliary variable used for identifying instances of the columnar
+        objects in the sysORTable. - 1.3.6.1.2.1.1.9.1.1
+      indexes:
+      - labelname: sysORIndex
+        type: gauge
+    - name: sysORID
+      oid: 1.3.6.1.2.1.1.9.1.2
+      type: OctetString
+      help: An authoritative identification of a capabilities statement with respect
+        to various MIB modules supported by the local SNMPv2 entity acting in an agent
+        role. - 1.3.6.1.2.1.1.9.1.2
+      indexes:
+      - labelname: sysORIndex
+        type: gauge
+    - name: sysORDescr
+      oid: 1.3.6.1.2.1.1.9.1.3
+      type: DisplayString
+      help: A textual description of the capabilities identified by the corresponding
+        instance of sysORID. - 1.3.6.1.2.1.1.9.1.3
+      indexes:
+      - labelname: sysORIndex
+        type: gauge
+    - name: sysORUpTime
+      oid: 1.3.6.1.2.1.1.9.1.4
+      type: gauge
+      help: The value of sysUpTime at the time this conceptual row was last instanciated.
+        - 1.3.6.1.2.1.1.9.1.4
+      indexes:
+      - labelname: sysORIndex
+        type: gauge
+    - name: ifNumber
+      oid: 1.3.6.1.2.1.2.1
+      type: gauge
+      help: The number of network interfaces (regardless of their current state) present
+        on this system. - 1.3.6.1.2.1.2.1
+    - name: ifIndex
+      oid: 1.3.6.1.2.1.2.2.1.1
+      type: gauge
+      help: A unique value, greater than zero, for each interface - 1.3.6.1.2.1.2.2.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifDescr
+      oid: 1.3.6.1.2.1.2.2.1.2
+      type: DisplayString
+      help: A textual string containing information about the interface - 1.3.6.1.2.1.2.2.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifType
+      oid: 1.3.6.1.2.1.2.2.1.3
+      type: gauge
+      help: The type of interface - 1.3.6.1.2.1.2.2.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: other
+        2: regular1822
+        3: hdh1822
+        4: ddnX25
+        5: rfc877x25
+        6: ethernetCsmacd
+        7: iso88023Csmacd
+        8: iso88024TokenBus
+        9: iso88025TokenRing
+        10: iso88026Man
+        11: starLan
+        12: proteon10Mbit
+        13: proteon80Mbit
+        14: hyperchannel
+        15: fddi
+        16: lapb
+        17: sdlc
+        18: ds1
+        19: e1
+        20: basicISDN
+        21: primaryISDN
+        22: propPointToPointSerial
+        23: ppp
+        24: softwareLoopback
+        25: eon
+        26: ethernet3Mbit
+        27: nsip
+        28: slip
+        29: ultra
+        30: ds3
+        31: sip
+        32: frameRelay
+        33: rs232
+        34: para
+        35: arcnet
+        36: arcnetPlus
+        37: atm
+        38: miox25
+        39: sonet
+        40: x25ple
+        41: iso88022llc
+        42: localTalk
+        43: smdsDxi
+        44: frameRelayService
+        45: v35
+        46: hssi
+        47: hippi
+        48: modem
+        49: aal5
+        50: sonetPath
+        51: sonetVT
+        52: smdsIcip
+        53: propVirtual
+        54: propMultiplexor
+        55: ieee80212
+        56: fibreChannel
+        57: hippiInterface
+        58: frameRelayInterconnect
+        59: aflane8023
+        60: aflane8025
+        61: cctEmul
+        62: fastEther
+        63: isdn
+        64: v11
+        65: v36
+        66: g703at64k
+        67: g703at2mb
+        68: qllc
+        69: fastEtherFX
+        70: channel
+        71: ieee80211
+        72: ibm370parChan
+        73: escon
+        74: dlsw
+        75: isdns
+        76: isdnu
+        77: lapd
+        78: ipSwitch
+        79: rsrb
+        80: atmLogical
+        81: ds0
+        82: ds0Bundle
+        83: bsc
+        84: async
+        85: cnr
+        86: iso88025Dtr
+        87: eplrs
+        88: arap
+        89: propCnls
+        90: hostPad
+        91: termPad
+        92: frameRelayMPI
+        93: x213
+        94: adsl
+        95: radsl
+        96: sdsl
+        97: vdsl
+        98: iso88025CRFPInt
+        99: myrinet
+        100: voiceEM
+        101: voiceFXO
+        102: voiceFXS
+        103: voiceEncap
+        104: voiceOverIp
+        105: atmDxi
+        106: atmFuni
+        107: atmIma
+        108: pppMultilinkBundle
+        109: ipOverCdlc
+        110: ipOverClaw
+        111: stackToStack
+        112: virtualIpAddress
+        113: mpc
+        114: ipOverAtm
+        115: iso88025Fiber
+        116: tdlc
+        117: gigabitEthernet
+        118: hdlc
+        119: lapf
+        120: v37
+        121: x25mlp
+        122: x25huntGroup
+        123: transpHdlc
+        124: interleave
+        125: fast
+        126: ip
+        127: docsCableMaclayer
+        128: docsCableDownstream
+        129: docsCableUpstream
+        130: a12MppSwitch
+        131: tunnel
+        132: coffee
+        133: ces
+        134: atmSubInterface
+        135: l2vlan
+        136: l3ipvlan
+        137: l3ipxvlan
+        138: digitalPowerline
+        139: mediaMailOverIp
+        140: dtm
+        141: dcn
+        142: ipForward
+        143: msdsl
+        144: ieee1394
+        145: if-gsn
+        146: dvbRccMacLayer
+        147: dvbRccDownstream
+        148: dvbRccUpstream
+        149: atmVirtual
+        150: mplsTunnel
+        151: srp
+        152: voiceOverAtm
+        153: voiceOverFrameRelay
+        154: idsl
+        155: compositeLink
+        156: ss7SigLink
+        157: propWirelessP2P
+        158: frForward
+        159: rfc1483
+        160: usb
+        161: ieee8023adLag
+        162: bgppolicyaccounting
+        163: frf16MfrBundle
+        164: h323Gatekeeper
+        165: h323Proxy
+        166: mpls
+        167: mfSigLink
+        168: hdsl2
+        169: shdsl
+        170: ds1FDL
+        171: pos
+        172: dvbAsiIn
+        173: dvbAsiOut
+        174: plc
+        175: nfas
+        176: tr008
+        177: gr303RDT
+        178: gr303IDT
+        179: isup
+        180: propDocsWirelessMaclayer
+        181: propDocsWirelessDownstream
+        182: propDocsWirelessUpstream
+        183: hiperlan2
+        184: propBWAp2Mp
+        185: sonetOverheadChannel
+        186: digitalWrapperOverheadChannel
+        187: aal2
+        188: radioMAC
+        189: atmRadio
+        190: imt
+        191: mvl
+        192: reachDSL
+        193: frDlciEndPt
+        194: atmVciEndPt
+        195: opticalChannel
+        196: opticalTransport
+        197: propAtm
+        198: voiceOverCable
+        199: infiniband
+        200: teLink
+        201: q2931
+        202: virtualTg
+        203: sipTg
+        204: sipSig
+        205: docsCableUpstreamChannel
+        206: econet
+        207: pon155
+        208: pon622
+        209: bridge
+        210: linegroup
+        211: voiceEMFGD
+        212: voiceFGDEANA
+        213: voiceDID
+        214: mpegTransport
+        215: sixToFour
+        216: gtp
+        217: pdnEtherLoop1
+        218: pdnEtherLoop2
+        219: opticalChannelGroup
+        220: homepna
+        221: gfp
+        222: ciscoISLvlan
+        223: actelisMetaLOOP
+        224: fcipLink
+        225: rpr
+        226: qam
+        227: lmp
+        228: cblVectaStar
+        229: docsCableMCmtsDownstream
+        230: adsl2
+        231: macSecControlledIF
+        232: macSecUncontrolledIF
+        233: aviciOpticalEther
+        234: atmbond
+        235: voiceFGDOS
+        236: mocaVersion1
+        237: ieee80216WMAN
+        238: adsl2plus
+        239: dvbRcsMacLayer
+        240: dvbTdm
+        241: dvbRcsTdma
+        242: x86Laps
+        243: wwanPP
+        244: wwanPP2
+        245: voiceEBS
+        246: ifPwType
+        247: ilan
+        248: pip
+        249: aluELP
+        250: gpon
+        251: vdsl2
+        252: capwapDot11Profile
+        253: capwapDot11Bss
+        254: capwapWtpVirtualRadio
+        255: bits
+        256: docsCableUpstreamRfPort
+        257: cableDownstreamRfPort
+        258: vmwareVirtualNic
+        259: ieee802154
+        260: otnOdu
+        261: otnOtu
+        262: ifVfiType
+        263: g9981
+        264: g9982
+        265: g9983
+        266: aluEpon
+        267: aluEponOnu
+        268: aluEponPhysicalUni
+        269: aluEponLogicalLink
+        270: aluGponOnu
+        271: aluGponPhysicalUni
+    - name: ifMtu
+      oid: 1.3.6.1.2.1.2.2.1.4
+      type: gauge
+      help: The size of the largest packet which can be sent/received on the interface,
+        specified in octets - 1.3.6.1.2.1.2.2.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifSpeed
+      oid: 1.3.6.1.2.1.2.2.1.5
+      type: gauge
+      help: An estimate of the interface's current bandwidth in bits per second -
+        1.3.6.1.2.1.2.2.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifPhysAddress
+      oid: 1.3.6.1.2.1.2.2.1.6
+      type: PhysAddress48
+      help: The interface's address at its protocol sub-layer - 1.3.6.1.2.1.2.2.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifAdminStatus
+      oid: 1.3.6.1.2.1.2.2.1.7
+      type: gauge
+      help: The desired state of the interface - 1.3.6.1.2.1.2.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+    - name: ifOperStatus
+      oid: 1.3.6.1.2.1.2.2.1.8
+      type: gauge
+      help: The current operational state of the interface - 1.3.6.1.2.1.2.2.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+    - name: ifLastChange
+      oid: 1.3.6.1.2.1.2.2.1.9
+      type: gauge
+      help: The value of sysUpTime at the time the interface entered its current operational
+        state - 1.3.6.1.2.1.2.2.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInOctets
+      oid: 1.3.6.1.2.1.2.2.1.10
+      type: counter
+      help: The total number of octets received on the interface, including framing
+        characters - 1.3.6.1.2.1.2.2.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.11
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were not addressed to a multicast or broadcast address at this sub-layer
+        - 1.3.6.1.2.1.2.2.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInNUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.12
+      type: counter
+      help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+        which were addressed to a multicast or broadcast address at this sub-layer
+        - 1.3.6.1.2.1.2.2.1.12
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInDiscards
+      oid: 1.3.6.1.2.1.2.2.1.13
+      type: counter
+      help: The number of inbound packets which were chosen to be discarded even though
+        no errors had been detected to prevent their being deliverable to a higher-layer
+        protocol - 1.3.6.1.2.1.2.2.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInErrors
+      oid: 1.3.6.1.2.1.2.2.1.14
+      type: counter
+      help: For packet-oriented interfaces, the number of inbound packets that contained
+        errors preventing them from being deliverable to a higher-layer protocol -
+        1.3.6.1.2.1.2.2.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifInUnknownProtos
+      oid: 1.3.6.1.2.1.2.2.1.15
+      type: counter
+      help: For packet-oriented interfaces, the number of packets received via the
+        interface which were discarded because of an unknown or unsupported protocol
+        - 1.3.6.1.2.1.2.2.1.15
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutOctets
+      oid: 1.3.6.1.2.1.2.2.1.16
+      type: counter
+      help: The total number of octets transmitted out of the interface, including
+        framing characters - 1.3.6.1.2.1.2.2.1.16
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.17
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were not addressed to a multicast or broadcast address at this sub-layer,
+        including those that were discarded or not sent - 1.3.6.1.2.1.2.2.1.17
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutNUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.18
+      type: counter
+      help: The total number of packets that higher-level protocols requested be transmitted,
+        and which were addressed to a multicast or broadcast address at this sub-layer,
+        including those that were discarded or not sent - 1.3.6.1.2.1.2.2.1.18
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutDiscards
+      oid: 1.3.6.1.2.1.2.2.1.19
+      type: counter
+      help: The number of outbound packets which were chosen to be discarded even
+        though no errors had been detected to prevent their being transmitted - 1.3.6.1.2.1.2.2.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutErrors
+      oid: 1.3.6.1.2.1.2.2.1.20
+      type: counter
+      help: For packet-oriented interfaces, the number of outbound packets that could
+        not be transmitted because of errors - 1.3.6.1.2.1.2.2.1.20
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifOutQLen
+      oid: 1.3.6.1.2.1.2.2.1.21
+      type: gauge
+      help: The length of the output packet queue (in packets). - 1.3.6.1.2.1.2.2.1.21
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: ifSpecific
+      oid: 1.3.6.1.2.1.2.2.1.22
+      type: OctetString
+      help: A reference to MIB definitions specific to the particular media being
+        used to realize the interface - 1.3.6.1.2.1.2.2.1.22
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+    - name: wgAlarmId
+      oid: 1.3.6.1.4.1.3097.2.4.1
+      type: gauge
+      help: The id of the alarm that generates a trap. - 1.3.6.1.4.1.3097.2.4.1
+    - name: wgAlarmLabel
+      oid: 1.3.6.1.4.1.3097.2.4.2
+      type: OctetString
+      help: The name of the alarm that generates a trap. - 1.3.6.1.4.1.3097.2.4.2
+    - name: wgAlarmTime
+      oid: 1.3.6.1.4.1.3097.2.4.3
+      type: OctetString
+      help: The date and time of the alarm that generates a trap. - 1.3.6.1.4.1.3097.2.4.3
+    - name: wgAlarmLevel
+      oid: 1.3.6.1.4.1.3097.2.4.4
+      type: gauge
+      help: The level of an alarm generated. - 1.3.6.1.4.1.3097.2.4.4
+      enum_values:
+        1: critical
+        2: error
+        3: warning
+        4: normal
+    - name: wgAlarmHostname
+      oid: 1.3.6.1.4.1.3097.2.4.5
+      type: OctetString
+      help: The host name of the system where alarm occurred - 1.3.6.1.4.1.3097.2.4.5
+    - name: wgAlarmMsg
+      oid: 1.3.6.1.4.1.3097.2.4.6
+      type: OctetString
+      help: The message describing the nature of this alarm. - 1.3.6.1.4.1.3097.2.4.6
+    - name: wgAlarmTrapEnable
+      oid: 1.3.6.1.4.1.3097.2.5.1
+      type: gauge
+      help: Indicates whether wgAlarmTrap trap should be generated. - 1.3.6.1.4.1.3097.2.5.1
+      enum_values:
+        0: "false"
+        1: "true"
+    - name: wgIpsecSaEspInAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.1.1.1
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInSpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.2
+      type: gauge
+      help: The security parameters index of the SA. - 1.3.6.1.4.1.3097.3.1.1.1.1.2
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.3
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.1.1.3
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaEspInDestId', or 0 if unknown
+        or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.1.1.4
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaEspInSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.5
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.1.1.5
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaEspInSourceId', or 0 if
+        unknown or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.1.1.6
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaEspInProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.1.1.7
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.8
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.1.1.8
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.9
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.1.1.9
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.1.1.10
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaEspInEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.1.1.11
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaEspInEncAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.12
+      type: gauge
+      help: A unique value representing the encryption algorithm applied to traffic
+        or 0 if there is no encryption used. - 1.3.6.1.4.1.3097.3.1.1.1.1.12
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: espDesIv64
+        2: espDes
+        3: esp3Des
+        4: espRc5
+        5: espIdea
+        6: espCast
+        7: espBlowfish
+        8: esp3Idea
+        9: espDesIv32
+        10: espRc4
+        11: espNull
+    - name: wgIpsecSaEspInEncKeyLength
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.13
+      type: gauge
+      help: The length of the encryption key in bits used for the algorithm specified
+        in the 'wgIpsecSaEspInEncAlg' object, or 0 if the key length is implicit in
+        the specified algorithm or there is no encryption specified. - 1.3.6.1.4.1.3097.3.1.1.1.1.13
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInAuthAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.14
+      type: gauge
+      help: A unique value representing the hash algorithm applied to traffic or 0
+        if there is no authentication used. - 1.3.6.1.4.1.3097.3.1.1.1.1.14
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: hmacMd5
+        2: hmacSha
+        3: desMac
+        4: kpdk
+    - name: wgIpsecSaEspInLimitSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.15
+      type: gauge
+      help: The maximum lifetime in seconds of the SA, or 0 if there is no time constraint
+        on its expiration - 1.3.6.1.4.1.3097.3.1.1.1.1.15
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInLimitKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.16
+      type: gauge
+      help: The maximum traffic in kilobytes that the SA is allowed to support, or
+        0 if there is no traffic constraint on its expiration - 1.3.6.1.4.1.3097.3.1.1.1.1.16
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInAccSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.17
+      type: counter
+      help: The number of seconds accumulated against the SA's expiration by time
+        - 1.3.6.1.4.1.3097.3.1.1.1.1.17
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInAccKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.18
+      type: counter
+      help: The amount of traffic accumulated that counts against the SA's expiration
+        by traffic limitation, measured in Kbytes - 1.3.6.1.4.1.3097.3.1.1.1.1.18
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.19
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA -
+        1.3.6.1.4.1.3097.3.1.1.1.1.19
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.20
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.1.1.20
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInDecryptErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.21
+      type: counter
+      help: The number of packets discarded by the SA due to decryption errors. -
+        1.3.6.1.4.1.3097.3.1.1.1.1.21
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInAuthErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.22
+      type: counter
+      help: The number of packets discarded by the SA due to authentication errors.
+        - 1.3.6.1.4.1.3097.3.1.1.1.1.22
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInReplayErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.23
+      type: counter
+      help: The number of packets discarded by the SA due to replay errors. - 1.3.6.1.4.1.3097.3.1.1.1.1.23
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInPolicyErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.24
+      type: counter
+      help: The number of packets discarded by the SA due to policy errors - 1.3.6.1.4.1.3097.3.1.1.1.1.24
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInPadErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.25
+      type: counter
+      help: The number of packets discarded by the SA due to pad value errors - 1.3.6.1.4.1.3097.3.1.1.1.1.25
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaEspInOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.1.1.26
+      type: counter
+      help: The number of packets discarded by the SA due to errors other than decryption,
+        authentication or replay errors - 1.3.6.1.4.1.3097.3.1.1.1.1.26
+      indexes:
+      - labelname: wgIpsecSaEspInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspInSpi
+        type: gauge
+    - name: wgIpsecSaAhInAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.2.1.1
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInSpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.2
+      type: gauge
+      help: The security parameters index of the SA. - 1.3.6.1.4.1.3097.3.1.1.2.1.2
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.3
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.2.1.3
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaAhInDestId', or 0 if unknown
+        or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.2.1.4
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaAhInSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.5
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.2.1.5
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaAhInSourceId', or 0 if unknown
+        or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.2.1.6
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaAhInProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.2.1.7
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.8
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.2.1.8
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.9
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.2.1.9
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.2.1.10
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaAhInEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.2.1.11
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaAhInAuthAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.12
+      type: gauge
+      help: A unique value representing the hash algorithm applied to traffic carried
+        by this SA if it uses ESP or 0 if there is no authentication applied by ESP.
+        - 1.3.6.1.4.1.3097.3.1.1.2.1.12
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: reserved1
+        2: ahMd5
+        3: ahSha
+        4: ahDes
+    - name: wgIpsecSaAhInLimitSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.13
+      type: gauge
+      help: The maximum lifetime in seconds of the SA, or 0 if there is no time constraint
+        on its expiration - 1.3.6.1.4.1.3097.3.1.1.2.1.13
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInLimitKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.14
+      type: gauge
+      help: The maximum traffic in Kbytes that the SA is allowed to support, or 0
+        if there is no traffic constraint on its expiration - 1.3.6.1.4.1.3097.3.1.1.2.1.14
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInAccSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.15
+      type: counter
+      help: The number of seconds accumulated against the SA's expiration by time
+        - 1.3.6.1.4.1.3097.3.1.1.2.1.15
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInAccKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.16
+      type: counter
+      help: The amount of traffic accumulated that counts against the SA's expiration
+        by traffic limitation, measured in Kbytes - 1.3.6.1.4.1.3097.3.1.1.2.1.16
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.17
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA -
+        1.3.6.1.4.1.3097.3.1.1.2.1.17
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.18
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.2.1.18
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInAuthErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.19
+      type: counter
+      help: The number of packets discarded by the SA due to authentication errors.
+        - 1.3.6.1.4.1.3097.3.1.1.2.1.19
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInReplayErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.20
+      type: counter
+      help: The number of packets discarded by the SA due to replay errors. - 1.3.6.1.4.1.3097.3.1.1.2.1.20
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInPolicyErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.21
+      type: counter
+      help: The number of packets discarded by the SA due to policy errors - 1.3.6.1.4.1.3097.3.1.1.2.1.21
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaAhInOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.2.1.22
+      type: counter
+      help: The number of packets discarded by the SA due to errors other than decryption,
+        authentication or replay errors - 1.3.6.1.4.1.3097.3.1.1.2.1.22
+      indexes:
+      - labelname: wgIpsecSaAhInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhInSpi
+        type: gauge
+    - name: wgIpsecSaIpcompInAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.3.1.1
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInCpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.2
+      type: gauge
+      help: The CPI of the SA - 1.3.6.1.4.1.3097.3.1.1.3.1.2
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: ipcompOui
+        2: ipcompDeflate
+        3: ipcompLzs
+    - name: wgIpsecSaIpcompInDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.3
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode, or 0 if this SA is used with multiple SAs in protection suites
+        - 1.3.6.1.4.1.3097.3.1.1.3.1.3
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaIpcompInDestId', or 0 if
+        unknown or if the SA uses transport mode, or 0 if this SA is used with multiple
+        SAs in protection suites. - 1.3.6.1.4.1.3097.3.1.1.3.1.4
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaIpcompInSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.5
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation, or 0 if this SA is used with multiple SAs in protection
+        suites - 1.3.6.1.4.1.3097.3.1.1.3.1.5
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaIpcompInSourceId', or 0
+        if unknown or if the SA uses transport mode encapsulation, or 0 if this SA
+        is used with multiple SAs in protection suites. - 1.3.6.1.4.1.3097.3.1.1.3.1.6
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaIpcompInProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.3.1.7
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.8
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.3.1.8
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.9
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.3.1.9
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.3.1.10
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaIpcompInEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.3.1.11
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaIpcompInDecompAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.12
+      type: gauge
+      help: A unique value representing the decompression algorithm applied to traffic.
+        - 1.3.6.1.4.1.3097.3.1.1.3.1.12
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: ipcompOui
+        2: ipcompDeflate
+        3: ipcompLzs
+    - name: wgIpsecSaIpcompInSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.13
+      type: counter
+      help: The number of seconds that the SA has existed. - 1.3.6.1.4.1.3097.3.1.1.3.1.13
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.14
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA.
+        - 1.3.6.1.4.1.3097.3.1.1.3.1.14
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.15
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.3.1.15
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInDecompErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.16
+      type: counter
+      help: The number of packets discarded by the SA due to decompression errors.
+        - 1.3.6.1.4.1.3097.3.1.1.3.1.16
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompInOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.3.1.17
+      type: counter
+      help: The number of packets discarded by the SA due to errors other than decompression
+        errors - 1.3.6.1.4.1.3097.3.1.1.3.1.17
+      indexes:
+      - labelname: wgIpsecSaIpcompInAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompInCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaEspOutAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.4.1.1
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutSpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.2
+      type: gauge
+      help: The security parameters index of the SA. - 1.3.6.1.4.1.3097.3.1.1.4.1.2
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.3
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.4.1.3
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaEspOutSourceId', or 0 if
+        unknown or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.4.1.4
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaEspOutDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.5
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.4.1.5
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaEspOutDestId', or 0 if unknown
+        or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.4.1.6
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaEspOutProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.4.1.7
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.8
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.4.1.8
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.9
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.4.1.9
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.4.1.10
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaEspOutEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.4.1.11
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaEspOutEncAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.12
+      type: gauge
+      help: A unique value representing the encryption algorithm applied to traffic
+        or 0 if there is no encryption used. - 1.3.6.1.4.1.3097.3.1.1.4.1.12
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: espDesIv64
+        2: espDes
+        3: esp3Des
+        4: espRc5
+        5: espIdea
+        6: espCast
+        7: espBlowfish
+        8: esp3Idea
+        9: espDesIv32
+        10: espRc4
+        11: espNull
+    - name: wgIpsecSaEspOutEncKeyLength
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.13
+      type: gauge
+      help: The length of the encryption key in bits used for the algorithm specified
+        in the 'wgIpsecSaEspOutEncAlg' object, or 0 if the key length is implicit
+        in the specified algorithm or there is no encryption specified. - 1.3.6.1.4.1.3097.3.1.1.4.1.13
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutAuthAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.14
+      type: gauge
+      help: A unique value representing the hash algorithm applied to traffic or 0
+        if there is no authentication used. - 1.3.6.1.4.1.3097.3.1.1.4.1.14
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: hmacMd5
+        2: hmacSha
+        3: desMac
+        4: kpdk
+    - name: wgIpsecSaEspOutLimitSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.15
+      type: gauge
+      help: The maximum lifetime in seconds of the SA, or 0 if there is no time constraint
+        on its expiration - 1.3.6.1.4.1.3097.3.1.1.4.1.15
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutLimitKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.16
+      type: gauge
+      help: The maximum traffic in kbytes that the SA is allowed to support, or 0
+        if there is no traffic constraint on its expiration - 1.3.6.1.4.1.3097.3.1.1.4.1.16
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutAccSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.17
+      type: counter
+      help: The number of seconds accumulated against the SA's expiration by time
+        - 1.3.6.1.4.1.3097.3.1.1.4.1.17
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutAccKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.18
+      type: counter
+      help: The amount of traffic accumulated that counts against the SA's expiration
+        by traffic limitation, measured in Kbytes - 1.3.6.1.4.1.3097.3.1.1.4.1.18
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.19
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA -
+        1.3.6.1.4.1.3097.3.1.1.4.1.19
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.20
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.4.1.20
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaEspOutSendErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.4.1.21
+      type: counter
+      help: The number of packets discarded by the SA due to any error - 1.3.6.1.4.1.3097.3.1.1.4.1.21
+      indexes:
+      - labelname: wgIpsecSaEspOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaEspOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.5.1.1
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutSpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.2
+      type: gauge
+      help: The security parameters index of the SA. - 1.3.6.1.4.1.3097.3.1.1.5.1.2
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.3
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.5.1.3
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaAhOutSourceId', or 0 if
+        unknown or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.5.1.4
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaAhOutDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.5
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode encapsulation - 1.3.6.1.4.1.3097.3.1.1.5.1.5
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaAhOutDestId', or 0 if unknown
+        or if the SA uses transport mode encapsulation. - 1.3.6.1.4.1.3097.3.1.1.5.1.6
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaAhOutProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.5.1.7
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.8
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.5.1.8
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.9
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.5.1.9
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.5.1.10
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaAhOutEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.5.1.11
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaAhOutAuthAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.12
+      type: gauge
+      help: A unique value representing the hash algorithm applied to traffic or 0
+        if there is no authentication used. - 1.3.6.1.4.1.3097.3.1.1.5.1.12
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+      enum_values:
+        0: reserved
+        1: reserved1
+        2: ahMd5
+        3: ahSha
+        4: ahDes
+    - name: wgIpsecSaAhOutLimitSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.13
+      type: gauge
+      help: The maximum lifetime in seconds of the SA, or 0 if there is no time constraint
+        on its expiration - 1.3.6.1.4.1.3097.3.1.1.5.1.13
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutLimitKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.14
+      type: gauge
+      help: The maximum traffic in Kbytes that the SA is allowed to support, or 0
+        if there is no traffic constraint on its expiration - 1.3.6.1.4.1.3097.3.1.1.5.1.14
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutAccSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.15
+      type: counter
+      help: The number of seconds accumulated against the SA's expiration by time
+        - 1.3.6.1.4.1.3097.3.1.1.5.1.15
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutAccKbytes
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.16
+      type: counter
+      help: The amount of traffic accumulated that counts against the SA's expiration
+        by traffic limitation, measured in Kbytes - 1.3.6.1.4.1.3097.3.1.1.5.1.16
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.17
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA -
+        1.3.6.1.4.1.3097.3.1.1.5.1.17
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.18
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.5.1.18
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaAhOutSendErrors
+      oid: 1.3.6.1.4.1.3097.3.1.1.5.1.19
+      type: counter
+      help: The number of packets discarded by the SA due to any error - 1.3.6.1.4.1.3097.3.1.1.5.1.19
+      indexes:
+      - labelname: wgIpsecSaAhOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaAhOutSpi
+        type: gauge
+    - name: wgIpsecSaIpcompOutAddress
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.1
+      type: InetAddressIPv4
+      help: The destination address of the SA - 1.3.6.1.4.1.3097.3.1.1.6.1.1
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutCpi
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.2
+      type: gauge
+      help: The CPI of the SA - 1.3.6.1.4.1.3097.3.1.1.6.1.2
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: ipcompOui
+        2: ipcompDeflate
+        3: ipcompLzs
+    - name: wgIpsecSaIpcompOutSourceId
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.3
+      type: OctetString
+      help: The source identifier of the SA, or 0 if unknown or if the SA uses transport
+        mode encapsulation, or 0 if this SA is used with multiple SAs in protection
+        suites - 1.3.6.1.4.1.3097.3.1.1.6.1.3
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutSourceIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.4
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaIpcompOutSourceId', or 0
+        if unknown or if the SA uses transport mode encapsulation, or 0 if this SA
+        is used with multiple SAs in protection suites. - 1.3.6.1.4.1.3097.3.1.1.6.1.4
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaIpcompOutDestId
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.5
+      type: OctetString
+      help: The destination identifier of the SA, or 0 if unknown or if the SA uses
+        transport mode encapsulation, or 0 if this SA is used with multiple SAs in
+        protection suites - 1.3.6.1.4.1.3097.3.1.1.6.1.5
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutDestIdType
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.6
+      type: gauge
+      help: The type of identifier presented by 'wgIpsecSaIpcompOutDestId', or 0 if
+        unknown or if the SA uses transport mode encapsulation, or 0 if this SA is
+        used with multiple SAs in protection suites. - 1.3.6.1.4.1.3097.3.1.1.6.1.6
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: idIpv4Addr
+        2: idFqdn
+        3: idUserFqdn
+        4: idIpv4AddrSubnet
+        5: idIpv6Addr
+        6: idIpv6AddrSubnet
+        7: idIpv4AddrRange
+        8: idIpv6AddrRange
+        9: idDerAsn1Dn
+        10: idDerAsn1Gn
+        11: idKeyId
+    - name: wgIpsecSaIpcompOutProtocol
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.7
+      type: gauge
+      help: The transport-layer protocol number that this SA carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.3.1.1.6.1.7
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutSourcePort
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.8
+      type: gauge
+      help: The source port number of the protocol that this SA carries, or 0 if it
+        carries any port number. - 1.3.6.1.4.1.3097.3.1.1.6.1.8
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutDestPort
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.9
+      type: gauge
+      help: The destination port number of the protocol that this SA carries, or 0
+        if it carries any port number. - 1.3.6.1.4.1.3097.3.1.1.6.1.9
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutCreator
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.10
+      type: gauge
+      help: The creator of this SA - 1.3.6.1.4.1.3097.3.1.1.6.1.10
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: unknown
+        1: static
+        2: ike
+        3: other
+    - name: wgIpsecSaIpcompOutEncapsulation
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.11
+      type: gauge
+      help: The type of encapsulation used by this SA. - 1.3.6.1.4.1.3097.3.1.1.6.1.11
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: tunnel
+        2: transport
+    - name: wgIpsecSaIpcompOutCompAlg
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.12
+      type: gauge
+      help: A unique value representing the compression algorithm applied to traffic.
+        - 1.3.6.1.4.1.3097.3.1.1.6.1.12
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+      enum_values:
+        0: reserved
+        1: ipcompOui
+        2: ipcompDeflate
+        3: ipcompLzs
+    - name: wgIpsecSaIpcompOutSeconds
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.13
+      type: counter
+      help: The number of seconds that the SA has existed. - 1.3.6.1.4.1.3097.3.1.1.6.1.13
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutUserOctets
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.14
+      type: counter
+      help: The amount of user level traffic measured in bytes handled by the SA -
+        1.3.6.1.4.1.3097.3.1.1.6.1.14
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecSaIpcompOutPackets
+      oid: 1.3.6.1.4.1.3097.3.1.1.6.1.15
+      type: counter
+      help: The number of packets handled by the SA. - 1.3.6.1.4.1.3097.3.1.1.6.1.15
+      indexes:
+      - labelname: wgIpsecSaIpcompOutAddress
+        type: InetAddressIPv4
+      - labelname: wgIpsecSaIpcompOutCpi
+        type: gauge
+        enum_values:
+          0: reserved
+          1: ipcompOui
+          2: ipcompDeflate
+          3: ipcompLzs
+    - name: wgIpsecEspCurrentInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.1
+      type: gauge
+      help: The current number of inbound ESP SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.1
+    - name: wgIpsecEspTotalInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.2
+      type: counter
+      help: The total number of inbound ESP SAs created in the entity since boot time.
+        - 1.3.6.1.4.1.3097.3.1.2.2
+    - name: wgIpsecEspCurrentOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.3
+      type: gauge
+      help: The current number of outbound ESP SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.3
+    - name: wgIpsecEspTotalOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.4
+      type: counter
+      help: The total number of outbound ESP SAs created in the entity since boot
+        time. - 1.3.6.1.4.1.3097.3.1.2.4
+    - name: wgIpsecAhCurrentInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.5
+      type: gauge
+      help: The current number of inbound AH SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.5
+    - name: wgIpsecAhTotalInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.6
+      type: counter
+      help: The total number of inbound AH SAs created in the entity since boot time.
+        - 1.3.6.1.4.1.3097.3.1.2.6
+    - name: wgIpsecAhCurrentOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.7
+      type: gauge
+      help: The current number of outbound AH SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.7
+    - name: wgIpsecAhTotalOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.8
+      type: counter
+      help: The total number of outbound AH SAs created in the entity since boot time.
+        - 1.3.6.1.4.1.3097.3.1.2.8
+    - name: wgIpsecIpcompCurrentInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.9
+      type: gauge
+      help: The current number of inbound IPCOMP SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.9
+    - name: wgIpsecIpcompTotalInboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.10
+      type: counter
+      help: The total number of inbound IPCOMP SAs created in the entity since boot
+        time. - 1.3.6.1.4.1.3097.3.1.2.10
+    - name: wgIpsecIpcompCurrentOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.11
+      type: gauge
+      help: The current number of outbound IPCOMP SAs in the entity. - 1.3.6.1.4.1.3097.3.1.2.11
+    - name: wgIpsecIpcompTotalOutboundSAs
+      oid: 1.3.6.1.4.1.3097.3.1.2.12
+      type: counter
+      help: The total number of outbound IPCOMP SAs created in the entity since boot
+        time. - 1.3.6.1.4.1.3097.3.1.2.12
+    - name: wgIpsecDecryptionErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.1
+      type: counter
+      help: The total number of packets received by the entity in SAs since boot time
+        with decryption errors. - 1.3.6.1.4.1.3097.3.1.3.1
+    - name: wgIpsecAuthenticationErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.2
+      type: counter
+      help: The total number of packets received by the entity in SAs since boot time
+        with authentication errors - 1.3.6.1.4.1.3097.3.1.3.2
+    - name: wgIpsecReplayErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.3
+      type: counter
+      help: The total number of packets received by the entity in SAs since boot time
+        with replay errors. - 1.3.6.1.4.1.3097.3.1.3.3
+    - name: wgIpsecPolicyErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.4
+      type: counter
+      help: The total number of packets received by the entity in SAs since boot time
+        and discarded due to policy errors - 1.3.6.1.4.1.3097.3.1.3.4
+    - name: wgIpsecOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.5
+      type: counter
+      help: The total number of packets received by the entity in SAs since boot time
+        and discarded due to errors not due to decryption, authentication, replay
+        or policy. - 1.3.6.1.4.1.3097.3.1.3.5
+    - name: wgIpsecSendErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.6
+      type: counter
+      help: The total number of packets to be sent by the entity in SAs since boot
+        time and discarded due to errors. - 1.3.6.1.4.1.3097.3.1.3.6
+    - name: wgIpsecUnknownSpiErrors
+      oid: 1.3.6.1.4.1.3097.3.1.3.7
+      type: counter
+      help: The total number of packets received by the entity since boot time with
+        SPIs or CPIs that were not valid. - 1.3.6.1.4.1.3097.3.1.3.7
+    - name: wgPolicyToTunnelNum
+      oid: 1.3.6.1.4.1.3097.4.1.1
+      type: gauge
+      help: The total number of tunnels in the policytotunnel table. - 1.3.6.1.4.1.3097.4.1.1
+    - name: wgPolicyToTunnelPolicyID
+      oid: 1.3.6.1.4.1.3097.4.1.2.1.1
+      type: gauge
+      help: The policy identifier of this entity. - 1.3.6.1.4.1.3097.4.1.2.1.1
+      indexes:
+      - labelname: wgPolicyToTunnelPolicyID
+        type: gauge
+      - labelname: wgPolicyToTunnelTunnelID
+        type: gauge
+    - name: wgPolicyToTunnelTunnelID
+      oid: 1.3.6.1.4.1.3097.4.1.2.1.2
+      type: gauge
+      help: The tunnel identifier of this entity. - 1.3.6.1.4.1.3097.4.1.2.1.2
+      indexes:
+      - labelname: wgPolicyToTunnelPolicyID
+        type: gauge
+      - labelname: wgPolicyToTunnelTunnelID
+        type: gauge
+    - name: wgPolicyTableNum
+      oid: 1.3.6.1.4.1.3097.4.2.1
+      type: gauge
+      help: The total number of policies in the policy table. - 1.3.6.1.4.1.3097.4.2.1
+    - name: wgPolicyID
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.1
+      type: gauge
+      help: The policy identifier of this policy. - 1.3.6.1.4.1.3097.4.2.2.1.1
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyName
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.2
+      type: OctetString
+      help: The policy name of this policy - 1.3.6.1.4.1.3097.4.2.2.1.2
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyBytes
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.3
+      type: counter
+      help: Total traffic in bytes since setting up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.3
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyPackets
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.4
+      type: counter
+      help: Total traffic in packets since setting up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.4
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecDecryptErr
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.5
+      type: counter
+      help: Total number of packets discarded due to decryption errors since setting
+        up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.5
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecAuthErr
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.6
+      type: counter
+      help: Total number of packets discarded due to authentication errors since setting
+        up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.6
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecReplayErr
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.7
+      type: counter
+      help: Total number of packets discarded due to replay errors since setting up
+        this policy. - 1.3.6.1.4.1.3097.4.2.2.1.7
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecPadErr
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.8
+      type: counter
+      help: Total number of packets discarded due to pad value errors since setting
+        up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.8
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecPolicyErr
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.9
+      type: counter
+      help: Total number of packets discarded due to policy errors since setting up
+        this policy. - 1.3.6.1.4.1.3097.4.2.2.1.9
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyFwDisc
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.10
+      type: counter
+      help: Total number of packets discarded by firewall policies since setting up
+        this policy. - 1.3.6.1.4.1.3097.4.2.2.1.10
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyOtherDisc
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.11
+      type: counter
+      help: Total number of packets discarded due to errors other than firewall errors,
+        ipsec errors since setting up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.11
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyActiveStreams
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.12
+      type: counter
+      help: Total number of the active connections since setting up this policy. -
+        1.3.6.1.4.1.3097.4.2.2.1.12
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyIpsecDisc
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.13
+      type: counter
+      help: Total number of packets discarded by IPSEC errors (decryption error, authentication
+        error, replay error) since setting up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.13
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyDisc
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.14
+      type: counter
+      help: Total number of packets discarded since setting up this policy. - 1.3.6.1.4.1.3097.4.2.2.1.14
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyNumTunl
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.15
+      type: counter
+      help: Total number of tunnels belong to this policy - 1.3.6.1.4.1.3097.4.2.2.1.15
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicySingleCntrNum
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.16
+      type: counter
+      help: Total number of single counters handled by this policy. - 1.3.6.1.4.1.3097.4.2.2.1.16
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgPolicyLogging
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.17
+      type: gauge
+      help: Indicates whether if the logging of this policy has been enabled. - 1.3.6.1.4.1.3097.4.2.2.1.17
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+      enum_values:
+        0: disabled
+        1: enabled
+    - name: wgPolicyCurrActiveConns
+      oid: 1.3.6.1.4.1.3097.4.2.2.1.18
+      type: counter
+      help: Total number of currently active connections for this policy. - 1.3.6.1.4.1.3097.4.2.2.1.18
+      indexes:
+      - labelname: wgPolicyID
+        type: gauge
+    - name: wgIpsecEndpointPairNum
+      oid: 1.3.6.1.4.1.3097.5.1.1.1
+      type: gauge
+      help: The total number of entries in the wgIpsecEndpointPairTable. - 1.3.6.1.4.1.3097.5.1.1.1
+    - name: wgIpsecEndpointPairIndex
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.1
+      type: gauge
+      help: The running index of this IPSec endpoint pair. - 1.3.6.1.4.1.3097.5.1.1.2.1.1
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairLocalAddr
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.2
+      type: InetAddressIPv4
+      help: The local IP address of the current IPSec ednpoint pair. - 1.3.6.1.4.1.3097.5.1.1.2.1.2
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairPeerAddr
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.3
+      type: InetAddressIPv4
+      help: The remote IP address of the current IPSec endpoint pair. - 1.3.6.1.4.1.3097.5.1.1.2.1.3
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairInSAs
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.4
+      type: gauge
+      help: The number of inbound IPSEC SA's within this IPSec endpoint pair. - 1.3.6.1.4.1.3097.5.1.1.2.1.4
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairOutSAs
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.5
+      type: gauge
+      help: The number of outbound IPSEC SA's within this IPSec endpoint pair. - 1.3.6.1.4.1.3097.5.1.1.2.1.5
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairInAccKbytes
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.6
+      type: counter
+      help: Total inbound traffic in Kbytes since the establish of this connection.
+        - 1.3.6.1.4.1.3097.5.1.1.2.1.6
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairOutAccKbytes
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.7
+      type: counter
+      help: Total outound traffic in Kbytes since the establish of this connection.
+        - 1.3.6.1.4.1.3097.5.1.1.2.1.7
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairInPackets
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.8
+      type: counter
+      help: Total number of inbound packets since the establish of this connection.
+        - 1.3.6.1.4.1.3097.5.1.1.2.1.8
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairOutPackets
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.9
+      type: counter
+      help: Total number of outound packets since the establish of this connection.
+        - 1.3.6.1.4.1.3097.5.1.1.2.1.9
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairDecryptErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.10
+      type: counter
+      help: Total number of packets discarded due to decryption error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.5.1.1.2.1.10
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairAuthErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.11
+      type: counter
+      help: Total number of packets discarded due to authentication error since the
+        establish of this connection. - 1.3.6.1.4.1.3097.5.1.1.2.1.11
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairReplayErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.12
+      type: counter
+      help: Total number of packets discarded due to replay error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.5.1.1.2.1.12
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairPolicyErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.13
+      type: counter
+      help: Total number of packets discarded due to policy error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.5.1.1.2.1.13
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairPadErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.14
+      type: counter
+      help: Total number of packets discarded due to pad value error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.5.1.1.2.1.14
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.15
+      type: counter
+      help: The number of packets discarded due to errors other than decryption, authentication
+        or replay errors - 1.3.6.1.4.1.3097.5.1.1.2.1.15
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairSendErrors
+      oid: 1.3.6.1.4.1.3097.5.1.1.2.1.16
+      type: counter
+      help: The number of packets discarded due to any error - 1.3.6.1.4.1.3097.5.1.1.2.1.16
+      indexes:
+      - labelname: wgIpsecEndpointPairIndex
+        type: gauge
+    - name: wgIpsecEndpointPairTotalInSAs
+      oid: 1.3.6.1.4.1.3097.5.1.2.1
+      type: gauge
+      help: The total number of active inbound SA's in the entity. - 1.3.6.1.4.1.3097.5.1.2.1
+    - name: wgIpsecEndpointPairTotalOutSAs
+      oid: 1.3.6.1.4.1.3097.5.1.2.2
+      type: gauge
+      help: The total number of active outbound SA's in the entity. - 1.3.6.1.4.1.3097.5.1.2.2
+    - name: wgIpsecEndpointPairTotalInAccKbytes
+      oid: 1.3.6.1.4.1.3097.5.1.2.3
+      type: counter
+      help: The total inbound IPsec traffic of this entity. - 1.3.6.1.4.1.3097.5.1.2.3
+    - name: wgIpsecEndpointPairTotalOutAccKbytes
+      oid: 1.3.6.1.4.1.3097.5.1.2.4
+      type: counter
+      help: The total outbound IPsec traffic of this entity. - 1.3.6.1.4.1.3097.5.1.2.4
+    - name: wgIpsecEndpointPairTotalInPackets
+      oid: 1.3.6.1.4.1.3097.5.1.2.5
+      type: counter
+      help: The total inbound IPsec packets of this entity. - 1.3.6.1.4.1.3097.5.1.2.5
+    - name: wgIpsecEndpointPairTotalOutPackets
+      oid: 1.3.6.1.4.1.3097.5.1.2.6
+      type: counter
+      help: The total outbound IPsec packets of this entity. - 1.3.6.1.4.1.3097.5.1.2.6
+    - name: wgIpsecEndpointPairTotalDecryptErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.7
+      type: counter
+      help: Total number of packets on this entity discarded due to encryption error.
+        - 1.3.6.1.4.1.3097.5.1.2.7
+    - name: wgIpsecEndpointPairTotalAuthErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.8
+      type: counter
+      help: Total number of packets on this entity discarded due to authentication
+        errors. - 1.3.6.1.4.1.3097.5.1.2.8
+    - name: wgIpsecEndpointPairTotalReplayErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.9
+      type: counter
+      help: Total number of packets discarded due to replay errors on this entity.
+        - 1.3.6.1.4.1.3097.5.1.2.9
+    - name: wgIpsecEndpointPairTotalPolicyErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.10
+      type: counter
+      help: Total number of packets discarded due to policy errors on this entity.
+        - 1.3.6.1.4.1.3097.5.1.2.10
+    - name: wgIpsecEndpointPairTotalPadErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.11
+      type: counter
+      help: Total number of packets on this entity discarded due to pad value error.
+        - 1.3.6.1.4.1.3097.5.1.2.11
+    - name: wgIpsecEndpointPairTotalOtherReceiveErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.12
+      type: counter
+      help: The total number of packets on this entity discarded due to errors other
+        than decryption, authentication or replay errors - 1.3.6.1.4.1.3097.5.1.2.12
+    - name: wgIpsecEndpointPairTotalSendErrors
+      oid: 1.3.6.1.4.1.3097.5.1.2.13
+      type: counter
+      help: The total number of packets discarded due to any error on this entity.
+        - 1.3.6.1.4.1.3097.5.1.2.13
+    - name: wgIpsecEndpointPairPeerIPToTunnelNum
+      oid: 1.3.6.1.4.1.3097.5.1.3.1
+      type: gauge
+      help: The total number of tunnels in the peeriptotunnel table. - 1.3.6.1.4.1.3097.5.1.3.1
+    - name: wgIpsecEndpointPairPeerIPToTunnelPeerIP
+      oid: 1.3.6.1.4.1.3097.5.1.3.2.1.1
+      type: InetAddressIPv4
+      help: The peer ip of the peeriptotunnel table. - 1.3.6.1.4.1.3097.5.1.3.2.1.1
+      indexes:
+      - labelname: wgIpsecEndpointPairPeerIPToTunnelPeerIP
+        type: InetAddressIPv4
+      - labelname: wgIpsecEndpointPairPeerIPToTunnelTunnelID
+        type: gauge
+    - name: wgIpsecEndpointPairPeerIPToTunnelTunnelID
+      oid: 1.3.6.1.4.1.3097.5.1.3.2.1.2
+      type: gauge
+      help: The tunnel id of the peeriptotunnel table. - 1.3.6.1.4.1.3097.5.1.3.2.1.2
+      indexes:
+      - labelname: wgIpsecEndpointPairPeerIPToTunnelPeerIP
+        type: InetAddressIPv4
+      - labelname: wgIpsecEndpointPairPeerIPToTunnelTunnelID
+        type: gauge
+    - name: wgInfoSystemCurrentTime
+      oid: 1.3.6.1.4.1.3097.6.1.1
+      type: DateAndTime
+      help: The host's notion of the local date and time of day. - 1.3.6.1.4.1.3097.6.1.1
+    - name: wgInfoGavService
+      oid: 1.3.6.1.4.1.3097.6.1.3
+      type: OctetString
+      help: Version and update time of Gateway Antivirus Service - 1.3.6.1.4.1.3097.6.1.3
+    - name: wgInfoIpsService
+      oid: 1.3.6.1.4.1.3097.6.1.4
+      type: OctetString
+      help: Version and update time of Intrusion Prevention Service - 1.3.6.1.4.1.3097.6.1.4
+    - name: wgClientDHCPServerEnable
+      oid: 1.3.6.1.4.1.3097.6.2.1.1
+      type: gauge
+      help: Indicates whether if DHCP Server has been enabled. - 1.3.6.1.4.1.3097.6.2.1.1
+      enum_values:
+        0: disabled
+        1: enabled
+        2: relay
+    - name: wgClientDHCPServerStartIpAddress
+      oid: 1.3.6.1.4.1.3097.6.2.1.2
+      type: InetAddressIPv4
+      help: The starting IP address of the range of IP addresses leased by the DHCP
+        server. - 1.3.6.1.4.1.3097.6.2.1.2
+    - name: wgClientDHCPServerEndIpAddress
+      oid: 1.3.6.1.4.1.3097.6.2.1.3
+      type: InetAddressIPv4
+      help: The last IP address of the range of IP addresses leased by the DHCP Server.
+        - 1.3.6.1.4.1.3097.6.2.1.3
+    - name: wgClientDHCPServerLeaseTime
+      oid: 1.3.6.1.4.1.3097.6.2.1.4
+      type: gauge
+      help: The lease time of an address assigned to a DHCP client. - 1.3.6.1.4.1.3097.6.2.1.4
+    - name: wgClientDHCPServerNum
+      oid: 1.3.6.1.4.1.3097.6.2.1.5
+      type: gauge
+      help: The total number of entries in the wgClientDHCPServerTable. - 1.3.6.1.4.1.3097.6.2.1.5
+    - name: wgClientDHCPServerConnClientHostName
+      oid: 1.3.6.1.4.1.3097.6.2.1.6.1.1
+      type: OctetString
+      help: The hostname of the client. - 1.3.6.1.4.1.3097.6.2.1.6.1.1
+      indexes:
+      - labelname: wgClientDHCPServerConnIPAddr
+        type: InetAddressIPv4
+    - name: wgClientDHCPServerConnIPAddr
+      oid: 1.3.6.1.4.1.3097.6.2.1.6.1.2
+      type: InetAddressIPv4
+      help: The IP address assigned to the client. - 1.3.6.1.4.1.3097.6.2.1.6.1.2
+      indexes:
+      - labelname: wgClientDHCPServerConnIPAddr
+        type: InetAddressIPv4
+    - name: wgClientDHCPServerConnMACAddr
+      oid: 1.3.6.1.4.1.3097.6.2.1.6.1.3
+      type: OctetString
+      help: The MAC address of the client. - 1.3.6.1.4.1.3097.6.2.1.6.1.3
+      indexes:
+      - labelname: wgClientDHCPServerConnIPAddr
+        type: InetAddressIPv4
+    - name: wgClientDHCPServerConnLeaseTimeStart
+      oid: 1.3.6.1.4.1.3097.6.2.1.6.1.4
+      type: DateAndTime
+      help: The date and time when the lease starts. - 1.3.6.1.4.1.3097.6.2.1.6.1.4
+      indexes:
+      - labelname: wgClientDHCPServerConnIPAddr
+        type: InetAddressIPv4
+    - name: wgClientDHCPServerConnLeaseTimeEnd
+      oid: 1.3.6.1.4.1.3097.6.2.1.6.1.5
+      type: DateAndTime
+      help: The date and time when the lease ends. - 1.3.6.1.4.1.3097.6.2.1.6.1.5
+      indexes:
+      - labelname: wgClientDHCPServerConnIPAddr
+        type: InetAddressIPv4
+    - name: wgClientDHCPServerRelayServer
+      oid: 1.3.6.1.4.1.3097.6.2.1.7
+      type: InetAddressIPv4
+      help: The IP address of remote DHCP server to which DHCP requests should be
+        relayed. - 1.3.6.1.4.1.3097.6.2.1.7
+    - name: wgClientDHCPClientEnable
+      oid: 1.3.6.1.4.1.3097.6.2.2.1
+      type: gauge
+      help: Indicates whether interface 1 (public) is configured to obtain IP address
+        through DHCP. - 1.3.6.1.4.1.3097.6.2.2.1
+      enum_values:
+        0: disabled
+        1: enabled
+    - name: wgClientDHCPClientDomainName
+      oid: 1.3.6.1.4.1.3097.6.2.2.2
+      type: OctetString
+      help: The domain name of the DHCP Client. - 1.3.6.1.4.1.3097.6.2.2.2
+    - name: wgClientDHCPClientDefaultGateway
+      oid: 1.3.6.1.4.1.3097.6.2.2.3
+      type: InetAddressIPv4
+      help: The IP address of the default gateway obtained by the DHCP client. - 1.3.6.1.4.1.3097.6.2.2.3
+    - name: wgClientDHCPClientDNSOne
+      oid: 1.3.6.1.4.1.3097.6.2.2.4
+      type: InetAddressIPv4
+      help: The IP address of the primary DNS server obtained by the DHCP client.
+        - 1.3.6.1.4.1.3097.6.2.2.4
+    - name: wgClientDHCPClientDNSTwo
+      oid: 1.3.6.1.4.1.3097.6.2.2.5
+      type: InetAddressIPv4
+      help: The IP address of the secondary DNS server obtained by the DHCP client.
+        - 1.3.6.1.4.1.3097.6.2.2.5
+    - name: wgClientPPPoEClientEnable
+      oid: 1.3.6.1.4.1.3097.6.2.3.1
+      type: gauge
+      help: Indicates whether the interface 1 (public) is configured to use PPPoE.
+        - 1.3.6.1.4.1.3097.6.2.3.1
+      enum_values:
+        0: disabled
+        1: enabled
+    - name: wgClientPPPoEClientADSLStatus
+      oid: 1.3.6.1.4.1.3097.6.2.3.2
+      type: gauge
+      help: The current ADSL status of the PPPoE Client. - 1.3.6.1.4.1.3097.6.2.3.2
+      enum_values:
+        0: disconnect
+        1: initialize
+        2: establish
+        3: authenticate
+        4: network
+        5: running
+    - name: wgClientPPPoEClientLocalIPAddr
+      oid: 1.3.6.1.4.1.3097.6.2.3.3
+      type: InetAddressIPv4
+      help: The IP address obtained by the PPPoE Client. - 1.3.6.1.4.1.3097.6.2.3.3
+    - name: wgClientPPPoEClientRemoteIPAddr
+      oid: 1.3.6.1.4.1.3097.6.2.3.4
+      type: InetAddressIPv4
+      help: The IP Address of the PPP server this PPPoE client connects to. - 1.3.6.1.4.1.3097.6.2.3.4
+    - name: wgClientPPPoEClientNetMask
+      oid: 1.3.6.1.4.1.3097.6.2.3.5
+      type: InetAddressIPv4
+      help: The subnet mask of the PPPoE client. - 1.3.6.1.4.1.3097.6.2.3.5
+    - name: wgClientPPPoEClientDNSOne
+      oid: 1.3.6.1.4.1.3097.6.2.3.6
+      type: InetAddressIPv4
+      help: The IP address of the primary DNS server obtained. - 1.3.6.1.4.1.3097.6.2.3.6
+    - name: wgClientPPPoEClientDNSTwo
+      oid: 1.3.6.1.4.1.3097.6.2.3.7
+      type: InetAddressIPv4
+      help: The IP address of the secondary DNS server obtained. - 1.3.6.1.4.1.3097.6.2.3.7
+    - name: wgClientPPPoEADSLPeerMACAddr
+      oid: 1.3.6.1.4.1.3097.6.2.3.8
+      type: OctetString
+      help: The MAC Address of the PPP server this client connects to. - 1.3.6.1.4.1.3097.6.2.3.8
+    - name: wgClientPPPoEClientConnTime
+      oid: 1.3.6.1.4.1.3097.6.2.3.9
+      type: gauge
+      help: The connection time of the PPPoE connection. - 1.3.6.1.4.1.3097.6.2.3.9
+    - name: wgSystemCpuUtil
+      oid: 1.3.6.1.4.1.3097.6.3.4
+      type: counter
+      help: CPU utilization of the system in last 5 seconds - 1.3.6.1.4.1.3097.6.3.4
+    - name: wgSystemTotalSendBytes
+      oid: 1.3.6.1.4.1.3097.6.3.8
+      type: counter
+      help: The total number of bytes sent since system is up - 1.3.6.1.4.1.3097.6.3.8
+    - name: wgSystemTotalRecvBytes
+      oid: 1.3.6.1.4.1.3097.6.3.9
+      type: counter
+      help: The total number of bytes received since system is up - 1.3.6.1.4.1.3097.6.3.9
+    - name: wgSystemTotalSendPackets
+      oid: 1.3.6.1.4.1.3097.6.3.10
+      type: counter
+      help: The total number of the packets sent since system is up - 1.3.6.1.4.1.3097.6.3.10
+    - name: wgSystemTotalRecvPackets
+      oid: 1.3.6.1.4.1.3097.6.3.11
+      type: counter
+      help: The total number of the packets received since system is up - 1.3.6.1.4.1.3097.6.3.11
+    - name: wgSystemStreamReqTotal
+      oid: 1.3.6.1.4.1.3097.6.3.30
+      type: counter
+      help: The total number of the connection requests since system is up. - 1.3.6.1.4.1.3097.6.3.30
+    - name: wgSystemStreamReqDrop
+      oid: 1.3.6.1.4.1.3097.6.3.34
+      type: counter
+      help: The total number of the connection requests being dropped since system
+        is up. - 1.3.6.1.4.1.3097.6.3.34
+    - name: wgSystemCpuUtil1
+      oid: 1.3.6.1.4.1.3097.6.3.77
+      type: counter
+      help: CPU utilization of the system in last 1 minute - 1.3.6.1.4.1.3097.6.3.77
+    - name: wgSystemCpuUtil5
+      oid: 1.3.6.1.4.1.3097.6.3.78
+      type: counter
+      help: CPU utilization of the system in last 5 minutes - 1.3.6.1.4.1.3097.6.3.78
+    - name: wgSystemCpuUtil15
+      oid: 1.3.6.1.4.1.3097.6.3.79
+      type: counter
+      help: CPU utilization of the system in last 15 minutes - 1.3.6.1.4.1.3097.6.3.79
+    - name: wgSystemCurrActiveConns
+      oid: 1.3.6.1.4.1.3097.6.3.80
+      type: counter
+      help: Total number of currently active connections of the system. - 1.3.6.1.4.1.3097.6.3.80
+    - name: wgIpsecTunnelNum
+      oid: 1.3.6.1.4.1.3097.6.5.1.1
+      type: gauge
+      help: The total number of entries in the wgIpsecTunnelTable. - 1.3.6.1.4.1.3097.6.5.1.1
+    - name: wgIpsecTunnelID
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.1
+      type: gauge
+      help: The running index of this tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.1
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelLocalAddr
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.2
+      type: InetAddressIPv4
+      help: The local IP address of the current tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.2
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelPeerAddr
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.3
+      type: InetAddressIPv4
+      help: The remote IP address of the current tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.3
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInSpi
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.4
+      type: gauge
+      help: The security parameters index of inbound SA's within this tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.4
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutSpi
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.5
+      type: gauge
+      help: The security parameters index of outbound SA's within this tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.5
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelCreateTime
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.6
+      type: DateAndTime
+      help: The date and time when the tunnel is created. - 1.3.6.1.4.1.3097.6.5.1.2.1.6
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelDeviceID
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.7
+      type: gauge
+      help: The identifier of target device where the SA resides. - 1.3.6.1.4.1.3097.6.5.1.2.1.7
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelEspEncryptAlg
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.8
+      type: gauge
+      help: The encryption algorithm used in the tunnel - 1.3.6.1.4.1.3097.6.5.1.2.1.8
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: unknown
+        2: des
+        3: three-des
+    - name: wgIpsecTunnelEspAuthAlg
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.9
+      type: gauge
+      help: The authentication algorithm used in the tunnel - 1.3.6.1.4.1.3097.6.5.1.2.1.9
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: unknown
+        2: md5
+        3: sha
+    - name: wgIpsecTunnelAhAuthAlg
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.10
+      type: gauge
+      help: The AH authentication algorithm used in the tunnel - 1.3.6.1.4.1.3097.6.5.1.2.1.10
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: unknown
+        2: md5
+        3: sha
+    - name: wgIpsecTunnelMode
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.11
+      type: gauge
+      help: The tunnel/transport mode of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.11
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: unknown
+        1: tunnel
+        2: transport
+    - name: wgIpsecTunnelKeyMode
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.12
+      type: gauge
+      help: The key mode of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.12
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: unknown
+        1: manual
+        2: auto-ike
+        3: other
+    - name: wgIpsecTunnelLifeTime
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.13
+      type: gauge
+      help: The life time (in hundredths of a second) of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.13
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelLifeLength
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.14
+      type: counter
+      help: The maximum traffic in bytes that the tunnel is allowed to support. -
+        1.3.6.1.4.1.3097.6.5.1.2.1.14
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInSaBytes
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.15
+      type: counter
+      help: Current active inbound SA bytes of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.15
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutSaBytes
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.16
+      type: counter
+      help: Current active outbound SA bytes of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.16
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelAccSecs
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.17
+      type: counter
+      help: The number of seconds that the tunnel has existed. - 1.3.6.1.4.1.3097.6.5.1.2.1.17
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorProtocol
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.18
+      type: gauge
+      help: The ip protocol number that this SA selector carries, or 0 if it carries
+        any protocol. - 1.3.6.1.4.1.3097.6.5.1.2.1.18
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: any
+        1: icmp
+        2: igmp
+        4: ipip
+        6: tcp
+        8: egp
+        12: pup
+        17: udp
+        22: idp
+        29: tp
+        41: ipv6
+        43: ipv6-routing
+        44: ipv6-fragmentation
+        46: rsvp
+        47: gre
+        50: esp
+        51: ah
+        58: icmpv6
+        59: none
+        60: dstopts
+        92: mtp
+        98: encap
+        103: pim
+        255: raw
+    - name: wgIpsecTunnelSelectorRemoteIPType
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.19
+      type: gauge
+      help: The type of remote IP address of the SA selector in the entity. - 1.3.6.1.4.1.3097.6.5.1.2.1.19
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        1: ip-addr-single
+        2: ip-addr-subnet
+        3: ip-addr-range
+    - name: wgIpsecTunnelSelectorRemoteIPOne
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.20
+      type: InetAddressIPv4
+      help: The first remote IP address of the SA selector in the entity - 1.3.6.1.4.1.3097.6.5.1.2.1.20
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorRemoteIPTwo
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.21
+      type: InetAddressIPv4
+      help: The second remote IP address of the SA selector in the entity - 1.3.6.1.4.1.3097.6.5.1.2.1.21
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorRemotePort
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.22
+      type: gauge
+      help: The remote port used by this selector in the entity. - 1.3.6.1.4.1.3097.6.5.1.2.1.22
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorLocalIPType
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.23
+      type: gauge
+      help: The type of local IP address of the SA selector in the entity. - 1.3.6.1.4.1.3097.6.5.1.2.1.23
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        1: ip-addr-single
+        2: ip-addr-subnet
+        3: ip-addr-range
+    - name: wgIpsecTunnelSelectorLocalIPOne
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.24
+      type: InetAddressIPv4
+      help: The first local IP address of the SA selector in the entity - 1.3.6.1.4.1.3097.6.5.1.2.1.24
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorLocalIPTwo
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.25
+      type: InetAddressIPv4
+      help: The second local IP address of the SA selector in the entity - 1.3.6.1.4.1.3097.6.5.1.2.1.25
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelSelectorLocalPort
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.26
+      type: gauge
+      help: The local port used by this selector in the entity. - 1.3.6.1.4.1.3097.6.5.1.2.1.26
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelNumRekey
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.27
+      type: counter
+      help: The number of rekeys of the tunnel. - 1.3.6.1.4.1.3097.6.5.1.2.1.27
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInKbytes
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.28
+      type: counter
+      help: Total inbound traffic in Kbytes since the establish of this tunnel. -
+        1.3.6.1.4.1.3097.6.5.1.2.1.28
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutKbytes
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.29
+      type: counter
+      help: Total outound traffic in Kbytes since the establish of this connection.
+        - 1.3.6.1.4.1.3097.6.5.1.2.1.29
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInPackets
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.30
+      type: counter
+      help: Total number of inbound packets since the establish of this connection.
+        - 1.3.6.1.4.1.3097.6.5.1.2.1.30
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutPackets
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.31
+      type: counter
+      help: Total number of outound packets since the establish of this connection.
+        - 1.3.6.1.4.1.3097.6.5.1.2.1.31
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInDecryptErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.32
+      type: counter
+      help: Total number of packets discarded due to decryption error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.32
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInAuthErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.33
+      type: counter
+      help: Total number of packets discarded due to authentication error since the
+        establish of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.33
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInReplayErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.34
+      type: counter
+      help: Total number of packets discarded due to replay error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.34
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelInOtherErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.35
+      type: counter
+      help: The number of packets discarded due to errors other than decryption, authentication
+        or replay errors - 1.3.6.1.4.1.3097.6.5.1.2.1.35
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutDecryptErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.36
+      type: counter
+      help: Total number of packets discarded due to decryption error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.36
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutAuthErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.37
+      type: counter
+      help: Total number of packets discarded due to authentication error since the
+        establish of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.37
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutReplayErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.38
+      type: counter
+      help: Total number of packets discarded due to replay error since the establish
+        of this connection. - 1.3.6.1.4.1.3097.6.5.1.2.1.38
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOutOtherErrors
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.39
+      type: counter
+      help: The number of packets discarded due to errors other than decryption, authentication
+        or replay errors - 1.3.6.1.4.1.3097.6.5.1.2.1.39
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelUdpEncap
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.40
+      type: gauge
+      help: Indicates whether if UDP encapsulated IPSec has been enabled. - 1.3.6.1.4.1.3097.6.5.1.2.1.40
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+      enum_values:
+        0: disabled
+        1: enabled
+    - name: wgIpsecTunnelPeerUdpPort
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.41
+      type: gauge
+      help: The peer's UDP port of current tunnel when UDP encapsulated IPSec is enabled.
+        - 1.3.6.1.4.1.3097.6.5.1.2.1.41
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgIpsecTunnelOrigPeerAddr
+      oid: 1.3.6.1.4.1.3097.6.5.1.2.1.42
+      type: InetAddressIPv4
+      help: The original peer ip address of current tunnel when UDP encapsulated IPSec
+        is enabled - 1.3.6.1.4.1.3097.6.5.1.2.1.42
+      indexes:
+      - labelname: wgIpsecTunnelID
+        type: gauge
+    - name: wgHAStatus
+      oid: 1.3.6.1.4.1.3097.6.6.1.1
+      type: gauge
+      help: Indicates current status of local appliance - 1.3.6.1.4.1.3097.6.6.1.1
+      enum_values:
+        0: disabled
+        1: unknown
+        2: as-primary-active
+        3: as-secondary-active
+        4: aa-primary-ative
+        5: aa-secondary-active
+        6: aa-primary-takeover
+        7: aa-secondary-takeover
+        8: standby
+        9: admin
+        10: failed
+        11: unavailable
+    - name: wgHAPeerStatus
+      oid: 1.3.6.1.4.1.3097.6.6.1.2
+      type: gauge
+      help: Indicates current status of peer appliance - 1.3.6.1.4.1.3097.6.6.1.2
+      enum_values:
+        0: unavailable
+        1: active
+        2: standby
+        3: admin
+        4: failed
+    - name: wgHALastDBSyncTime
+      oid: 1.3.6.1.4.1.3097.6.6.1.3
+      type: DateAndTime
+      help: The last DB synchronized time of local appliance. - 1.3.6.1.4.1.3097.6.6.1.3
+    - name: wgHAError
+      oid: 1.3.6.1.4.1.3097.6.6.1.4
+      type: gauge
+      help: Reports the current error that occurred in local appliance . - 1.3.6.1.4.1.3097.6.6.1.4
+      enum_values:
+        0: no-error
+        1: mismatched-ha-id
+        2: mismatched-software
+        3: mismatched-database
+        4: mismatched-hardware
+        5: forced-fail
+        6: invalid-ha-role
+        7: link-down
+        8: lost-mia-heartbeat
+        9: mia-not-responding
+        10: admin-command-failed
+        11: detect-ha-error
+        12: unavailable
+        13: hotsync-failed
+        14: config-sync-failed
+    - name: wgHAPeerError
+      oid: 1.3.6.1.4.1.3097.6.6.1.5
+      type: gauge
+      help: Reports the current error that occurred in peer appliance. - 1.3.6.1.4.1.3097.6.6.1.5
+      enum_values:
+        0: no-error
+        1: mismatched-ha-id
+        2: mismatched-software
+        3: mismatched-database
+        4: mismatched-hardware
+        5: forced-fail
+        6: invalid-ha-role
+        7: link-down
+        8: lost-mia-heartbeat
+        9: mia-not-responding
+        10: admin-command-failed
+        11: detect-ha-error
+        12: unavailable
+        13: hotsync-failed
+        14: config-sync-failed
+    - name: wgHAPeerSerialNumber
+      oid: 1.3.6.1.4.1.3097.6.6.2.1
+      type: OctetString
+      help: The serial number of peer appliance. - 1.3.6.1.4.1.3097.6.6.2.1
+    - name: wgHAPeerLastDBSyncTime
+      oid: 1.3.6.1.4.1.3097.6.6.2.2
+      type: DateAndTime
+      help: The last DB synchronized time of peer appliance. - 1.3.6.1.4.1.3097.6.6.2.2
+    - name: wgHAPeerIfNumber
+      oid: 1.3.6.1.4.1.3097.6.6.2.3.1
+      type: gauge
+      help: The number of RapidCard installed in this entity. - 1.3.6.1.4.1.3097.6.6.2.3.1
+    - name: wgHAPeerIfIndex
+      oid: 1.3.6.1.4.1.3097.6.6.2.3.2.1.1
+      type: gauge
+      help: The unique value for each interface. - 1.3.6.1.4.1.3097.6.6.2.3.2.1.1
+      indexes:
+      - labelname: wgHAPeerIfIndex
+        type: gauge
+    - name: wgHAPeerIfIpAddr
+      oid: 1.3.6.1.4.1.3097.6.6.2.3.2.1.4
+      type: InetAddressIPv4
+      help: The ip address of the interface. - 1.3.6.1.4.1.3097.6.6.2.3.2.1.4
+      indexes:
+      - labelname: wgHAPeerIfIndex
+        type: gauge
+    - name: wgHAPeerIfLinkStatus
+      oid: 1.3.6.1.4.1.3097.6.6.2.3.2.1.9
+      type: gauge
+      help: The current state of the interface. - 1.3.6.1.4.1.3097.6.6.2.3.2.1.9
+      indexes:
+      - labelname: wgHAPeerIfIndex
+        type: gauge
+      enum_values:
+        0: down
+        1: up
+        2: other
+    - name: wgHAPeerSystemCpuUtil
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.1
+      type: gauge
+      help: The CPU utilization of the peer system in last 5 seconds. - 1.3.6.1.4.1.3097.6.6.2.4.1
+    - name: wgHAPeerSystemTotalSendBytes
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.2
+      type: counter
+      help: The total number of bytes sent since peer system is up. - 1.3.6.1.4.1.3097.6.6.2.4.2
+    - name: wgHAPeerSystemTotalRecvBytes
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.3
+      type: counter
+      help: The total number of bytes received since peer system is up. - 1.3.6.1.4.1.3097.6.6.2.4.3
+    - name: wgHAPeerSystemTotalSendPackets
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.4
+      type: counter
+      help: The total number of packets sent since peer system is up. - 1.3.6.1.4.1.3097.6.6.2.4.4
+    - name: wgHAPeerSystemTotalRecvPackets
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.5
+      type: counter
+      help: The total number of packets received since peer system is up. - 1.3.6.1.4.1.3097.6.6.2.4.5
+    - name: wgHAPeerSystemStreamReqTotal
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.6
+      type: counter
+      help: The total number of the connection requests since system is up. - 1.3.6.1.4.1.3097.6.6.2.4.6
+    - name: wgHAPeerSystemStreamReqDrop
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.7
+      type: counter
+      help: The total number of the connection requests being dropped since system
+        is up. - 1.3.6.1.4.1.3097.6.6.2.4.7
+    - name: wgHAPeerSystemCurrIpsecTunnels
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.8
+      type: counter
+      help: The number of ipsec tunnels in the peer system currently. - 1.3.6.1.4.1.3097.6.6.2.4.8
+    - name: wgHAPeerSystemCpuUtil1
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.9
+      type: gauge
+      help: The CPU utilization of the peer system in last 1 minute. - 1.3.6.1.4.1.3097.6.6.2.4.9
+    - name: wgHAPeerSystemCpuUtil5
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.10
+      type: gauge
+      help: The CPU utilization of the peer system in last 5 minutes. - 1.3.6.1.4.1.3097.6.6.2.4.10
+    - name: wgHAPeerSystemCpuUtil15
+      oid: 1.3.6.1.4.1.3097.6.6.2.4.11
+      type: gauge
+      help: The CPU utilization of the peer system in last 15 minutes. - 1.3.6.1.4.1.3097.6.6.2.4.11
+    - name: watchguard_memory_used
+      oid: 1.3.6.1.4.1.3097.6.3.1.1.3
+      type: gauge
+      help: Memory Used in KB
+
+    - name: watchguard_memory_free
+      oid: 1.3.6.1.4.1.3097.6.3.1.1.4
+      type: gauge
+      help: Memory Free in KB
+
+    - name: watchguard_cpu_avg
+      oid: 1.3.6.1.4.1.3097.6.3.1.1.6
+      type: gauge
+      help: Average CPU usage percentage
