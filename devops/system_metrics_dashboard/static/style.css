@@ -1,0 +1,26 @@
+# ================= Static CSS: static/style.css =================
+# This file should be saved in a new folder named 'static' in the same directory as main.py
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.metric {
+    margin-bottom: 40px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+

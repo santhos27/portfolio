@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Metrics Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>System Realtime Metrics</h1>
+
+        <div class="metric">
+            <canvas id="cpuChart"></canvas>
+            <p>CPU Usage: <strong>{{ cpu_percent }}%</strong></p>
+        </div>
+
+        <div class="metric">
+            <canvas id="memoryChart"></canvas>
+            <p>Memory Usage: <strong>{{ memory_used }}MB / {{ memory_total }}MB</strong> ({{ memory_percent }}%)</p>
+        </div>
+
+        <div class="metric">
+            <canvas id="diskChart"></canvas>
+            <p>Disk Usage: <strong>{{ disk_used }}GB / {{ disk_total }}GB</strong> ({{ disk_percent }}%)</p>
+        </div>
+    </div>
+
+    <script>
+        const cpuData = {
+            labels: ['CPU Usage'],
+            datasets: [{
+                label: 'CPU %',
+                data: [{{ cpu_percent }}],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)'
+            }]
+        };
+        const memoryData = {
+            labels: ['Memory Usage'],
+            datasets: [{
+                label: 'Memory %',
+                data: [{{ memory_percent }}],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            }]
+        };
+        const diskData = {
+            labels: ['Disk Usage'],
+            datasets: [{
+                label: 'Disk %',
+                data: [{{ disk_percent }}],
+                backgroundColor: 'rgba(255, 206, 86, 0.5)'
+            }]
+        };
+
+        new Chart(document.getElementById('cpuChart'), { type: 'bar', data: cpuData });
+        new Chart(document.getElementById('memoryChart'), { type: 'bar', data: memoryData });
+        new Chart(document.getElementById('diskChart'), { type: 'bar', data: diskData });
+    </script>
+</body>
+</html>
