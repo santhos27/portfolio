@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/santhos27/jenkins-resume.git'
+                git 'https://github.com/santhos27/Jenkins_cicd_resume.git'
             }
         }
 
