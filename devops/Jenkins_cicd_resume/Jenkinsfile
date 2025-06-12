@@ -1,0 +1,46 @@
+pipeline {
+    agent { label 'local_kai' }  // this should match the slave's label
+    environment {
+        IMAGE_NAME = 'santhoskumardocker/resume' // change to your DockerHub username/repo
+        IMAGE_TAG = 'latest'
+    }
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/santhos27/jenkins-resume.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                docker build -t $IMAGE_NAME:$IMAGE_TAG .
+                '''
+            }
+        }
+
+        stage('Push to DockerHub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    docker push $IMAGE_NAME:$IMAGE_TAG
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                sh '''
+                docker --version
+                docker ps -a
+                docker rm -f resume || true
+                docker run -d --name resume -p 5003:5002 $IMAGE_NAME:$IMAGE_TAG
+                '''
+            }
+        }
+    }
+}
+
