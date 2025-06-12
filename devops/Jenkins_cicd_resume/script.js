@@ -1,5 +1,3 @@
-// script.js
-
 // Smooth scroll for internal nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
