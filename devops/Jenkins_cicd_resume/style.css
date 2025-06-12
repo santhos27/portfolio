@@ -1,0 +1,145 @@
+/* style.css */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+header {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #00d1b2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding: 3rem 0;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-grid li {
+  background: #00d1b2;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.timeline {
+  border-left: 3px solid #00d1b2;
+  padding-left: 2rem;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+}
+
+.timeline-item h3 {
+  color: #00d1b2;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item ul {
+  padding-left: 1rem;
+}
+
+.timeline-item ul li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+ul {
+  list-style: square inside;
+}
+
+a {
+  color: #00a7a7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  nav ul li {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

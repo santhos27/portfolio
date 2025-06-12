@@ -9,13 +9,15 @@ pipeline {
         stage('Clone') {
             steps {
                 git 'https://github.com/santhos27/portfolio.git'
-                sh 'cd portfolio/devops/Jenkins_cicd_resume'
+                sh 'pwd'
+                sh 'cd ./devops/Jenkins_cicd_resume && ls -la'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 sh '''
+                cd ./devops/Jenkins_cicd_resume && ls -la
                 docker build -t $IMAGE_NAME:$IMAGE_TAG .
                 '''
             }
@@ -38,7 +40,7 @@ pipeline {
                 docker --version
                 docker ps -a
                 docker rm -f resume || true
-                docker run -d --name resume -p 5003:5002 $IMAGE_NAME:$IMAGE_TAG
+                docker run -d --name resume -p 8888:80 $IMAGE_NAME:$IMAGE_TAG
                 '''
             }
         }
