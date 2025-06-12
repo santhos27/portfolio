@@ -1,8 +1,8 @@
 # Use an official Python runtime as a parent image
-FROM httpd
+FROM httpd:alpine
 
 # Copy the current directory contents into the container at /app
-COPY ./index.html /usr/local/apache2/htdocs/
+COPY ./* /usr/local/apache2/htdocs/
 
 # Expose port 80 to the outside world
 EXPOSE 80
