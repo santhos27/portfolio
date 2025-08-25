@@ -1,6 +1,0 @@
-# Use an official MYSql image
-FROM mysql:latest
-
-# Copy the DB File into the build
-COPY .db_init.sql /docker-entrypoint-initdb.d/
-
