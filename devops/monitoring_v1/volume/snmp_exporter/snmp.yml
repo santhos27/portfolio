@@ -1,11 +1,11 @@
 # WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.
 auths:
-  cisco_85:
-    community: 'Cha3EMU&h+za'
-  cisco_95:
-    community: 'Sw7yenUje-$E'
+  cisco_100:
+    community: 'string'
+  cisco_101:
+    community: 'string'
   watchguard:
-    community: 'mobius'
+    community: 'strinh'
 modules:
   cisco_switch:
     walk:
